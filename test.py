@@ -6,10 +6,11 @@ from player import Player
 from sprites import *
 from pytmx.util_pygame import load_pygame
 from groups import AllSprites
-from spawn import *
+
 from random import randint, choice
-
-
+from enemies import *
+from gun import *
+from projectiles import *
 class Game:
     def __init__(self):
         # setup
@@ -42,16 +43,6 @@ class Game:
     def load_images(self):
         self.bullet_surf = pygame.image.load(join('images', 'gun', 'bullet.png')).convert_alpha()
 
-        folders = list(walk(join('images', 'enemies')))[0][1]
-        self.enemy_frames = {}
-        """for folder in folders:
-            for folder_path, _, file_names in walk(join('images', 'enemies', folder)):
-                self.enemy_frames[folder] = []
-                for file_name in sorted(file_names, key=lambda name: int(name.split('.')[0])):
-                    full_path = join(folder_path, file_name)
-                    surf = pygame.image.load(full_path).convert_alpha()
-                    self.enemy_frames[folder].append(surf)"""
-
     def input(self):
         if pygame.mouse.get_pressed()[0] and self.can_shoot:
             pos = self.gun.rect.center + self.gun.player_direction * 50
@@ -82,7 +73,7 @@ class Game:
                 self.player = Player((obj.x, obj.y), self.all_sprites, self.collision_sprites)
                 self.gun = Gun(self.player, self.all_sprites)
             else:
-                Poro((obj.x,obj.y),(self.all_sprites),self.player,self.collision_sprites)
+                Poro((obj.x,obj.y),(self.all_sprites,self.enemy_sprites),self.player,self.enemy_sprites,self.collision_sprites  )
     def bullet_collision(self):
         if self.bullet_sprites:
             for bullet in self.bullet_sprites:
@@ -93,8 +84,6 @@ class Game:
                     bullet.kill()
     def player_collision(self):
         collision=pygame.sprite.spritecollide(self.player,self.enemy_sprites,False)
-        if collision:
-            self.running=False
     def run(self):
         while self.running:
             # dt

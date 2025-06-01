@@ -130,16 +130,16 @@
   <object id="41" name="Player" x="788.667" y="733.667">
    <point/>
   </object>
-  <object id="42" name="Poro" type="Enemy" x="702.667" y="706">
+  <object id="42" name="Poro" type="Enemy" x="498.667" y="708.667">
    <point/>
   </object>
-  <object id="84" name="Poro" type="Enemy" x="752" y="704.667">
+  <object id="84" name="Poro" type="Enemy" x="701.333" y="526">
    <point/>
   </object>
-  <object id="85" name="Poro" type="Enemy" x="882.667" y="702">
+  <object id="85" name="Poro" type="Enemy" x="1012" y="391.333">
    <point/>
   </object>
-  <object id="86" name="Poro" type="Enemy" x="837.333" y="699.333">
+  <object id="86" name="Poro" type="Enemy" x="992" y="519.333">
    <point/>
   </object>
  </objectgroup>
