@@ -6,7 +6,7 @@ from player import Player
 from sprites import *
 from pytmx.util_pygame import load_pygame
 from groups import AllSprites
-
+from Spawn import *
 from random import randint, choice
 from enemies import *
 from gun import *
@@ -37,16 +37,13 @@ class Game:
         self.spawn_positions = []
 
         # setup
-        self.load_images()
         self.setup()
 
-    def load_images(self):
-        self.bullet_surf = pygame.image.load(join('images', 'gun', 'bullet.png')).convert_alpha()
 
     def input(self):
         if pygame.mouse.get_pressed()[0] and self.can_shoot:
             pos = self.gun.rect.center + self.gun.player_direction * 50
-            Bullet(self.bullet_surf, pos, self.gun.player_direction, (self.all_sprites, self.bullet_sprites))
+            Bullet(pos, self.gun.player_direction, (self.all_sprites, self.bullet_sprites),self.enemy_sprites)
             self.can_shoot = False
             self.shoot_time = pygame.time.get_ticks()
 
@@ -57,7 +54,7 @@ class Game:
                 self.can_shoot = True
 
     def setup(self):
-        map = load_pygame(join('data', 'maps', 'Test_level.tmx'))
+        map = load_pygame(join('..','data', 'maps', 'Test_level.tmx'))
         for x, y, image in map.get_layer_by_name('Tile Layer 1').tiles():
             Sprite((x * TILE_SIZE, y * TILE_SIZE), image, self.all_sprites)
         for x,y, image in map.get_layer_by_name('Tile Layer 2').tiles():
@@ -73,15 +70,9 @@ class Game:
                 self.player = Player((obj.x, obj.y), self.all_sprites, self.collision_sprites)
                 self.gun = Gun(self.player, self.all_sprites)
             else:
-                Poro((obj.x,obj.y),(self.all_sprites,self.enemy_sprites),self.player,self.enemy_sprites,self.collision_sprites  )
-    def bullet_collision(self):
-        if self.bullet_sprites:
-            for bullet in self.bullet_sprites:
-                collision_sprites=pygame.sprite.spritecollide(bullet,self.enemy_sprites,False,pygame.sprite.collide_mask)
-                if collision_sprites:
-                    for sprite in collision_sprites:
-                        sprite.destroy()
-                    bullet.kill()
+                Spawn_poro((obj.x,obj.y),self)
+
+
     def player_collision(self):
         collision=pygame.sprite.spritecollide(self.player,self.enemy_sprites,False)
     def run(self):
@@ -101,7 +92,6 @@ class Game:
             self.gun_timer()
             self.input()
             self.all_sprites.update(dt)
-            self.bullet_collision()
             self.player_collision()
 
             # draw

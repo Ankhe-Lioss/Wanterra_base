@@ -23,7 +23,7 @@ class Poro(pygame.sprite.Sprite):
         self.frames = []
 
         for i in range(0, 6):
-            surf = pygame.image.load(join('images', 'enemies', 'Poro', f'{i}.png')).convert_alpha()
+            surf = pygame.image.load(join('..','images', 'enemies', 'Poro', f'{i}.png')).convert_alpha()
             self.frames.append(surf)
 
     def animate(self, dt):

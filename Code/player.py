@@ -9,7 +9,7 @@ class Player(pygame.sprite.Sprite):
         self.load_image()
         self.state = 'down'
         self.frame = 0
-        self.image = pygame.image.load(join('images', 'player', 'down', '0.png')).convert_alpha()
+        self.image = pygame.image.load(join('..','images', 'player', 'down', '0.png')).convert_alpha()
         self.rect = self.image.get_frect(center=pos)
         self.hitbox_rect = self.rect.inflate(-20,-10)
 
@@ -32,7 +32,7 @@ class Player(pygame.sprite.Sprite):
         }
         # Iterate through all 8 states
         for state in self.frames.keys():
-            for folder_path, sub_folder, file_names in walk(join('images', 'player', state)):
+            for folder_path, sub_folder, file_names in walk(join('..','images', 'player', state)):
                 if file_names:
                     for file_name in sorted(file_names, key=lambda x: int(x.split('.')[0])):
                         full_path = join(folder_path, file_name)

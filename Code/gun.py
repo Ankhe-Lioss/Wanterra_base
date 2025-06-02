@@ -8,7 +8,7 @@ class Gun(pygame.sprite.Sprite):
 
         # sprite setup
         super().__init__(groups)
-        self.gun_surf = pygame.image.load(join('images', 'gun', 'gun.png')).convert_alpha()
+        self.gun_surf = pygame.image.load(join('..','images', 'gun', 'gun.png')).convert_alpha()
         self.image = self.gun_surf
         self.rect = self.image.get_frect(center=self.player.rect.center + self.player_direction * self.distance)
 
