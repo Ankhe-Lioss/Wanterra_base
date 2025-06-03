@@ -70,9 +70,10 @@ class Game:
                 self.player = Player((obj.x, obj.y), self.all_sprites, self.collision_sprites)
                 self.gun = Gun(self.player, self.all_sprites)
             else:
-                Spawn_poro((obj.x,obj.y),self)
-
-
+                if obj.name=='Poro':
+                    Spawn_poro((obj.x, obj.y), self)
+                if obj.name=='Meele':
+                    Spawn_meele((obj.x, obj.y), self)
     def player_collision(self):
         collision=pygame.sprite.spritecollide(self.player,self.enemy_sprites,False)
     def run(self):
@@ -84,9 +85,6 @@ class Game:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     self.running = False
-                """if event.type == self.enemy_event:
-                    Enemy(choice(self.spawn_positions), choice(list(self.enemy_frames.values())),
-                          (self.all_sprites, self.enemy_sprites), self.player, self.collision_sprites)"""
 
             # update
             self.gun_timer()

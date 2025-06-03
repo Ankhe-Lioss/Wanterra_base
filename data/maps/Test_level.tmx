@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="80" height="45" tilewidth="32" tileheight="32" infinite="0" nextlayerid="8" nextobjectid="88">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="80" height="45" tilewidth="32" tileheight="32" infinite="0" nextlayerid="8" nextobjectid="90">
  <tileset firstgid="1" source="../tilesets/terrain.tsx"/>
  <tileset firstgid="484" source="../tilesets/Objects.tsx"/>
  <layer id="1" name="Tile Layer 1" width="80" height="45">
@@ -140,6 +140,12 @@
    <point/>
   </object>
   <object id="86" name="Poro" type="Enemy" x="992" y="519.333">
+   <point/>
+  </object>
+  <object id="88" name="Meele" x="578" y="314">
+   <point/>
+  </object>
+  <object id="89" name="Meele" x="1044" y="732">
    <point/>
   </object>
  </objectgroup>
