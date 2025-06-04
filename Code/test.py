@@ -6,11 +6,12 @@ from player import Player
 from sprites import *
 from pytmx.util_pygame import load_pygame
 from groups import AllSprites
-from Spawn import *
+from spawn import *
 from random import randint, choice
 from enemies import *
 from gun import *
 from projectiles import *
+from setup import *
 class Game:
     def __init__(self):
         # setup
@@ -37,8 +38,7 @@ class Game:
         self.spawn_positions = []
 
         # setup
-        self.setup()
-
+        setup(self)
 
     def input(self):
         if pygame.mouse.get_pressed()[0] and self.can_shoot:
@@ -53,29 +53,7 @@ class Game:
             if current_time - self.shoot_time >= self.gun_cooldown:
                 self.can_shoot = True
 
-    def setup(self):
-        map = load_pygame(join('..','data', 'maps', 'Test_level.tmx'))
-        for x, y, image in map.get_layer_by_name('Tile Layer 1').tiles():
-            Sprite((x * TILE_SIZE, y * TILE_SIZE), image, self.all_sprites)
-        for x,y, image in map.get_layer_by_name('Tile Layer 2').tiles():
-            Sprite((x * TILE_SIZE, y * TILE_SIZE), image, self.all_sprites)
-        for obj in map.get_layer_by_name('Objects'):
-            CollisionSprite((obj.x, obj.y), obj.image, (self.all_sprites, self.collision_sprites))
 
-        for obj in map.get_layer_by_name('Collisions'):
-            CollisionSprite((obj.x, obj.y), pygame.Surface((obj.width, obj.height)), self.collision_sprites)
-
-        for obj in map.get_layer_by_name('Entities'):
-            if obj.name == 'Player':
-                self.player = Player((obj.x, obj.y), self.all_sprites, self.collision_sprites)
-                self.gun = Gun(self.player, self.all_sprites)
-            else:
-                if obj.name=='Poro':
-                    Spawn_poro((obj.x, obj.y), self)
-                if obj.name=='Meele':
-                    Spawn_meele((obj.x, obj.y), self)
-    def player_collision(self):
-        collision=pygame.sprite.spritecollide(self.player,self.enemy_sprites,False)
     def run(self):
         while self.running:
             # dt

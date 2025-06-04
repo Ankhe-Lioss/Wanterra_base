@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="80" height="45" tilewidth="32" tileheight="32" infinite="0" nextlayerid="8" nextobjectid="90">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="80" height="45" tilewidth="32" tileheight="32" infinite="0" nextlayerid="8" nextobjectid="94">
  <tileset firstgid="1" source="../tilesets/terrain.tsx"/>
  <tileset firstgid="484" source="../tilesets/Objects.tsx"/>
  <layer id="1" name="Tile Layer 1" width="80" height="45">
@@ -152,8 +152,8 @@
  <objectgroup id="7" name="Collisions">
   <object id="47" x="-96" y="-80" width="2760" height="128"/>
   <object id="48" x="-120" y="8" width="200" height="1512"/>
-  <object id="49" x="-184" y="1320" width="2928" height="264"/>
   <object id="50" x="2456" y="-144" width="424" height="1744"/>
   <object id="51" x="2616" y="-1232" width="8" height="8"/>
+  <object id="90" x="-200" y="1376" width="3112" height="368"/>
  </objectgroup>
 </map>

@@ -60,7 +60,7 @@ class Player(pygame.sprite.Sprite):
                 else:
                     if self.direction.y < 0: self.hitbox_rect.top = sprite.rect.bottom
                     if self.direction.y > 0: self.hitbox_rect.bottom = sprite.rect.top
-    def update_animation(self, dt):
+    def update_state(self):
         if self.direction.x != 0 or self.direction.y != 0:
             # Cardinal directions
             if self.direction.x > 0 and self.direction.y == 0:
@@ -80,9 +80,11 @@ class Player(pygame.sprite.Sprite):
                 self.state = 'down_left'
             elif self.direction.x < 0 and self.direction.y < 0:
                 self.state = 'up_left'
+    def update_animation(self, dt):
         self.frame_index = self.frame_index + (5 * dt if self.direction else 0)
         self.image = self.frames[self.state][int(self.frame_index) % len(self.frames[self.state])]
     def update(self, dt):
+        self.update_state()
         self.input()
         self.move(dt)
         self.update_animation(dt)
