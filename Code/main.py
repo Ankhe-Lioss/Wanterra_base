@@ -14,7 +14,7 @@ def setup(game):
     for obj in map.get_layer_by_name('Entities'):
         if obj.name == 'Player':
             game.player = Player((obj.x, obj.y), game.all_sprites, game.collision_sprites)
-            game.gun = Gun(game.player, game.all_sprites)
+            game.gun = Gun( game.all_sprites,game)
         else:
             if obj.name == 'Poro':
                 Spawn_poro((obj.x, obj.y), game)

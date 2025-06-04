@@ -11,7 +11,7 @@ from random import randint, choice
 from enemies import *
 from gun import *
 from projectiles import *
-from setup import *
+from main import *
 class Game:
     def __init__(self):
         # setup
@@ -27,37 +27,14 @@ class Game:
         self.bullet_sprites = pygame.sprite.Group()
         self.enemy_sprites = pygame.sprite.Group()
 
-        # gun timer
-        self.can_shoot = True
-        self.shoot_time = 0
-        self.gun_cooldown = 100
-
-        # enemy timer
-        self.enemy_event = pygame.event.custom_type()
-        pygame.time.set_timer(self.enemy_event, 300)
-        self.spawn_positions = []
-
         # setup
         setup(self)
-
-    def input(self):
-        if pygame.mouse.get_pressed()[0] and self.can_shoot:
-            pos = self.gun.rect.center + self.gun.player_direction * 50
-            Bullet(pos, self.gun.player_direction, (self.all_sprites, self.bullet_sprites),self.enemy_sprites)
-            self.can_shoot = False
-            self.shoot_time = pygame.time.get_ticks()
-
-    def gun_timer(self):
-        if not self.can_shoot:
-            current_time = pygame.time.get_ticks()
-            if current_time - self.shoot_time >= self.gun_cooldown:
-                self.can_shoot = True
 
 
     def run(self):
         while self.running:
             # dt
-            dt = self.clock.tick() / 1000
+            dt = self.clock.tick(90) / 1000
 
             # event loop
             for event in pygame.event.get():
@@ -65,10 +42,7 @@ class Game:
                     self.running = False
 
             # update
-            self.gun_timer()
-            self.input()
             self.all_sprites.update(dt)
-            self.player_collision()
 
             # draw
             self.display_surface.fill('black')

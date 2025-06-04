@@ -1,16 +1,35 @@
 from settings import *
+from projectiles import *
 class Gun(pygame.sprite.Sprite):
-    def __init__(self, player, groups):
+    def __init__(self, groups,game):
         # player connection
-        self.player = player
+
         self.distance = 40
         self.player_direction = pygame.Vector2(0, 1)
-
+        self.game=game
+        self.player = self.game.player
         # sprite setup
         super().__init__(groups)
         self.gun_surf = pygame.image.load(join('..','images', 'gun', 'gun.png')).convert_alpha()
         self.image = self.gun_surf
         self.rect = self.image.get_frect(center=self.player.rect.center + self.player_direction * self.distance)
+        # gun timer
+        self.can_shoot = True
+        self.shoot_time = 0
+        self.gun_cooldown = 1000
+    def input(self):
+        if pygame.mouse.get_pressed()[0] and self.can_shoot:
+            pos = self.rect.center + self.player_direction * 50
+            Bullet(pos, self.player_direction, (self.game.all_sprites, self.game.bullet_sprites),self.game.enemy_sprites)
+            self.can_shoot = False
+            self.shoot_time = pygame.time.get_ticks()
+
+    def gun_timer(self):
+        if not self.can_shoot:
+            current_time = pygame.time.get_ticks()
+            if current_time - self.shoot_time >= self.gun_cooldown:
+                self.can_shoot = True
+
 
     def get_direction(self):
         mouse_pos = pygame.Vector2(pygame.mouse.get_pos())
@@ -28,4 +47,6 @@ class Gun(pygame.sprite.Sprite):
     def update(self, _):
         self.get_direction()
         self.rotate_gun()
+        self.gun_timer()
+        self.input()
         self.rect.center = self.player.rect.center + self.player_direction * self.distance
