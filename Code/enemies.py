@@ -18,7 +18,6 @@ class Poro(pygame.sprite.Sprite):
         self.speed = 350
         self.death_time=0
         self.death_duration=400
-
     def load_frames(self):
         self.frames = []
 

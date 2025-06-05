@@ -34,7 +34,7 @@ class Game:
     def run(self):
         while self.running:
             # dt
-            dt = self.clock.tick(90) / 1000
+            dt = self.clock.tick(FPS) / 1000
 
             # event loop
             for event in pygame.event.get():
