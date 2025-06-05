@@ -1,17 +1,19 @@
+#import lib
 import pygame.sprite
-
+from random import randint, choice
+from pytmx.util_pygame import load_pygame
+#import code
 import player
 from settings import *
 from player import Player
 from sprites import *
-from pytmx.util_pygame import load_pygame
 from groups import AllSprites
 from spawn import *
-from random import randint, choice
 from enemies import *
 from gun import *
 from projectiles import *
 from setup import *
+
 class Game:
     def __init__(self):
         # setup
@@ -26,7 +28,6 @@ class Game:
         self.collision_sprites = pygame.sprite.Group()
         self.bullet_sprites = pygame.sprite.Group()
         self.enemy_sprites = pygame.sprite.Group()
-
         # setup
         setup(self)
 
@@ -49,7 +50,6 @@ class Game:
             pygame.display.update()
 
         pygame.quit()
-
 
 if __name__ == '__main__':
     game = Game()

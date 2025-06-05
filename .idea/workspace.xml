@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1a9cb1f2-7068-45bb-a586-1076765e5cdd" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/gun.py" beforeDir="false" afterPath="$PROJECT_DIR$/Code/gun.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/Code/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/Code/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Code/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Code/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,13 +25,14 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Code/enemies.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/Code/groups.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/Code/gun.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/Code/main.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/Code/player.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/Code/projectiles.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/Code/setup.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/Code/spawn.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/Code/sprites.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/Code/test.py" root0="SKIP_INSPECTION" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
@@ -51,6 +50,7 @@
     "Python.1.executor": "Run",
     "Python.enemies.executor": "Run",
     "Python.gun.executor": "Run",
+    "Python.main.executor": "Run",
     "Python.player.executor": "Run",
     "Python.projectiles.executor": "Run",
     "Python.setup.executor": "Run",
@@ -104,11 +104,23 @@
       <workItem from="1748880692283" duration="464000" />
       <workItem from="1748914036452" duration="2580000" />
       <workItem from="1749011902136" duration="7028000" />
+      <workItem from="1749019507226" duration="625000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/player_py$sprites.coverage" NAME="sprites Coverage Results" MODIFIED="1748757881507" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -122,6 +134,7 @@
     <SUITE FILE_PATH="coverage/test_py$projectiles.coverage" NAME="projectiles Coverage Results" MODIFIED="1748832913117" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Code" />
     <SUITE FILE_PATH="coverage/player_py$test.coverage" NAME="test Coverage Results" MODIFIED="1748758388658" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/enemies_py$test.coverage" NAME="test Coverage Results" MODIFIED="1748881130148" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Code" />
+    <SUITE FILE_PATH="coverage/main_py$main.coverage" NAME="main Coverage Results" MODIFIED="1749019607896" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Code" />
     <SUITE FILE_PATH="coverage/test_py$test.coverage" NAME="test Coverage Results" MODIFIED="1749018793762" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Code" />
   </component>
 </project>
