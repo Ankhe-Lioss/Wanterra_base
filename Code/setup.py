@@ -1,10 +1,11 @@
 from main import *
+from weapon import *
 def setup(game):
-    map = load_pygame(join('..', 'data', 'maps', 'Test_level.tmx'))
+    map = load_pygame(join( 'data', 'maps', 'Test_level.tmx'))
     for x, y, image in map.get_layer_by_name('Tile Layer 1').tiles():
-        Sprite((x * TILE_SIZE, y * TILE_SIZE), image, game.all_sprites)
+        Ground((x * TILE_SIZE, y * TILE_SIZE), image, game.all_sprites)
     for x, y, image in map.get_layer_by_name('Tile Layer 2').tiles():
-        Sprite((x * TILE_SIZE, y * TILE_SIZE), image, game.all_sprites)
+        Ground((x * TILE_SIZE, y * TILE_SIZE), image, game.all_sprites)
     for obj in map.get_layer_by_name('Objects'):
         CollisionSprite((obj.x, obj.y), obj.image, (game.all_sprites, game.collision_sprites))
 
@@ -14,7 +15,7 @@ def setup(game):
     for obj in map.get_layer_by_name('Entities'):
         if obj.name == 'Player':
             game.player = Player((obj.x, obj.y), game.all_sprites, game.collision_sprites)
-            game.gun = Gun( game.all_sprites,game)
+            game.gun = Weapon(game.all_sprites, game)
         else:
             if obj.name == 'Poro':
                 Spawn_poro((obj.x, obj.y), game)

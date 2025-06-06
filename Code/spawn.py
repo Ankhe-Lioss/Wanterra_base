@@ -1,8 +1,7 @@
 from settings import *
 from enemies import *
 def Spawn_poro(pos,game):
-    Poro(pos, (game.all_sprites, game.enemy_sprites), game.player, game.enemy_sprites,
-         game.collision_sprites)
+    Poro(pos, (game.all_sprites, game.enemy_sprites),game)
 def Spawn_meele(pos,game):
     Meele(pos, (game.all_sprites, game.enemy_sprites), game.player, game.enemy_sprites,
          game.collision_sprites)

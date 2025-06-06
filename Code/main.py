@@ -7,23 +7,21 @@ import player
 from settings import *
 from player import Player
 from sprites import *
-from groups import AllSprites
+from groups import *
 from spawn import *
 from enemies import *
-from gun import *
+from weapon import *
 from projectiles import *
 from setup import *
-
 class Game:
     def __init__(self):
-        # setup
         pygame.init()
         self.display_surface = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
-        pygame.display.set_caption('Survivor')
+        pygame.display.set_caption('Warnterra')
         self.clock = pygame.time.Clock()
         self.running = True
 
-        # groups
+        # groupsz
         self.all_sprites = AllSprites()
         self.collision_sprites = pygame.sprite.Group()
         self.bullet_sprites = pygame.sprite.Group()

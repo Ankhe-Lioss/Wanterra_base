@@ -1,19 +1,19 @@
 from settings import *
 class Poro(pygame.sprite.Sprite):
-    def __init__(self, pos, groups, player,enemysprite,collision_sprites):
+    def __init__(self, pos, groups, game):
         super().__init__(groups)
-        self.player = player
+        self.player =game.player
         #load
         self.load_frames()
         # image
         self.frame_index=0
         self.image = self.frames[self.frame_index]
         self.animation_speed = 6
-        self.enemy_sprite=enemysprite
+        self.enemy_sprite=game.enemy_sprites
         # rect
         self.rect = self.image.get_frect(center=pos)
         self.hitbox_rect = self.rect.inflate(0, 0)
-        self.collision_sprites = collision_sprites
+        self.collision_sprites = game.collision_sprites
         self.direction = pygame.Vector2()
         self.speed = 350
         self.death_time=0
@@ -22,7 +22,7 @@ class Poro(pygame.sprite.Sprite):
         self.frames = []
 
         for i in range(0, 6):
-            surf = pygame.image.load(join('..','images', 'enemies', 'Poro', f'{i}.png')).convert_alpha()
+            surf = pygame.image.load(join('images', 'enemies', 'Poro', f'{i}.png')).convert_alpha()
             self.frames.append(surf)
 
     def animate(self, dt):
@@ -97,7 +97,7 @@ class Meele(pygame.sprite.Sprite):
         self.frames = []
 
         for i in range(0, 6):
-            surf = pygame.image.load(join('..','images', 'enemies', 'Meele', f'{i}.png')).convert_alpha()
+            surf = pygame.image.load(join('images', 'enemies', 'Meele', f'{i}.png')).convert_alpha()
             self.frames.append(surf)
 
     def animate(self, dt):

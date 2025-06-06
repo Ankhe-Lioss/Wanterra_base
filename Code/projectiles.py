@@ -12,7 +12,7 @@ class Bullet(pygame.sprite.Sprite):
         self.direction = direction
         self.speed = 1200
     def load_images(self):
-        self.bullet_surf = pygame.image.load(join('..','images', 'gun', 'bullet.png')).convert_alpha()
+        self.bullet_surf = pygame.image.load(join('images', 'gun', 'bullet.png')).convert_alpha()
     def update(self, dt):
         self.rect.center += self.direction * self.speed * dt
         self.bullet_collision()
