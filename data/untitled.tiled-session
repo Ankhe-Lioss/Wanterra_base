@@ -6,8 +6,8 @@
     "activeFile": "maps/Test_level.tmx",
     "expandedProjectPaths": [
         ".",
-        "tilesets",
-        "maps"
+        "maps",
+        "tilesets"
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
@@ -15,8 +15,8 @@
             "scale": 0.5,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": 742,
-                "y": 873
+                "x": 496,
+                "y": 721
             }
         },
         "maps/Test_level.tmx#Object": {

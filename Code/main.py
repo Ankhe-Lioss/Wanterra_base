@@ -14,7 +14,7 @@ from spawn import *
 from enemies import *
 from weapon import *
 from projectiles import *
-from setup import *
+from setlevel import *
 from cursor import *
 class Game:
     def __init__(self):
@@ -30,7 +30,7 @@ class Game:
         self.bullet_sprites = pygame.sprite.Group()
         self.enemy_sprites = pygame.sprite.Group()
         # setup
-        setup(self)
+        setlevel(self)
 
     def run(self):
         while self.running:

@@ -1,20 +1,36 @@
 from settings import *
 from projectiles import *
-class Shoot():
+class Skill():
     def __init__(self, weapon):
         self.weapon=weapon
-        self.can_shoot = True
+        self.can_skill = True
         self.shoot_time = 0
-        self.gun_cooldown = 1000
-    def input(self):
-        if pygame.mouse.get_pressed()[0] and self.can_shoot:
-            pos = self.weapon.rect.center + self.weapon.player_direction * 50
-            Gauntlet_Primary(pos, self.weapon.player_direction, (self.weapon.game.all_sprites, self.weapon.game.bullet_sprites),self.weapon.game)
-            self.can_shoot = False
+    def check(self):
+        if self.can_skill:
+            self.using_skill()
+            self.can_skill = False
             self.shoot_time = pygame.time.get_ticks()
-
-    def gun_timer(self):
-        if not self.can_shoot:
+    def skill_timer(self):
+        if not self.can_skill:
             current_time = pygame.time.get_ticks()
             if current_time - self.shoot_time >= self.gun_cooldown:
-                self.can_shoot = True
+                self.can_skill = True
+    def execute(self):
+        self.skill_timer()
+        self.check()
+class Gauntlet_primary(Skill):
+    def __init__(self, weapon):
+        super().__init__(weapon)
+        self.gun_cooldown = 1000
+    def using_skill(self):
+        pos = self.weapon.rect.center + self.weapon.mouse_direction * 50
+        Gauntlet_Primary(pos, self.weapon.mouse_direction, (self.weapon.game.all_sprites, self.weapon.game.bullet_sprites),self.weapon.game)
+class Gauntlet_secondary(Skill):
+    def __init__(self, weapon):
+        super().__init__(weapon)
+        self.gun_cooldown = 1000
+
+    def using_skill(self):
+        pos = self.weapon.rect.center + self.weapon.mouse_direction * 50
+        Gauntlet_Secondary(pos, self.weapon.mouse_direction,
+                         (self.weapon.game.all_sprites, self.weapon.game.bullet_sprites), self.weapon.game)

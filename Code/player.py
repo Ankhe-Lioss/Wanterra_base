@@ -10,12 +10,19 @@ class Player(pygame.sprite.Sprite):
         self.image = pygame.image.load(join('images', 'player', 'down', '0.png')).convert_alpha()
         self.rect = self.image.get_frect(center=pos)
         self.hitbox_rect = self.rect.inflate(-20,-10)
-
+        #mouse input
+        self.mouse_direction = pygame.Vector2()
         # movement 
         self.direction = pygame.Vector2()
         self.speed = 500
         self.collision_sprites = collision_sprites
         self.frame_index = 0
+        self.states=("up", "up_right", "right", "down_right", "down", "down_left", "left", "up_left")
+    def get_mouse_direction(self):
+        mouse_pos = pygame.Vector2(pygame.mouse.get_pos())
+        player_pos = pygame.Vector2(WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2)
+        self.mouse_direction = (mouse_pos - player_pos).normalize()
+
     def load_image(self):
         # Include the 8 directions
         self.frames = {
@@ -58,32 +65,18 @@ class Player(pygame.sprite.Sprite):
                 else:
                     if self.direction.y < 0: self.hitbox_rect.top = sprite.rect.bottom
                     if self.direction.y > 0: self.hitbox_rect.bottom = sprite.rect.top
-
     def update_state(self):
-        if self.direction.x != 0 or self.direction.y != 0:
-            # Cardinal directions
-            if self.direction.x > 0 and self.direction.y == 0:
-                self.state = 'right'
-            elif self.direction.x < 0 and self.direction.y == 0:
-                self.state = 'left'
-            elif self.direction.y > 0 and self.direction.x == 0:
-                self.state = 'down'
-            elif self.direction.y < 0 and self.direction.x == 0:
-                self.state = 'up'
-            # Diagonal directions
-            elif self.direction.x > 0 and self.direction.y > 0:
-                self.state = 'down_right'
-            elif self.direction.x > 0 and self.direction.y < 0:
-                self.state = 'up_right'
-            elif self.direction.x < 0 and self.direction.y > 0:
-                self.state = 'down_left'
-            elif self.direction.x < 0 and self.direction.y < 0:
-                self.state = 'up_left'
+        angle = - degrees(atan2(self.mouse_direction.x,self.mouse_direction.y)) + 180
+
+        self.state = self.states[int((angle + 22.5 if angle <= 337.5 else angle + 22.5 - 360) / 45)]
     def update_animation(self, dt):
         self.frame_index = self.frame_index + (5 * dt if self.direction else 0)
         self.image = self.frames[self.state][int(self.frame_index) % len(self.frames[self.state])]
     def update(self, dt):
+
+        self.get_mouse_direction()
         self.update_state()
         self.input()
         self.move(dt)
+        self.get_mouse_direction()
         self.update_animation(dt)

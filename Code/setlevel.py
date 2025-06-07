@@ -1,6 +1,6 @@
 from main import *
 from weapon import *
-def setup(game):
+def setlevel(game):
     game.level=0
     map = load_pygame(join( 'data', 'maps', 'Test_level.tmx'))
     for x, y, image in map.get_layer_by_name('Tile Layer 1').tiles():

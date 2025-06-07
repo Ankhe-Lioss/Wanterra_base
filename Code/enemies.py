@@ -44,9 +44,8 @@ class Enemy(pygame.sprite.Sprite):
         self.frames = {}
         for i in self.states :
             self.frames[i] = []
-        for state in self.frames.keys():
             for k in range(0, 6):
-                surf = pygame.image.load(join('images', 'enemies',f'{self.name}',f'{state}',f'{k}.png')).convert_alpha()
+                surf = pygame.image.load(join('images', 'enemies',f'{self.name}',f'{i}',f'{k}.png')).convert_alpha()
                 self.frames["Walking"].append(surf)
 
     def animate(self, dt):

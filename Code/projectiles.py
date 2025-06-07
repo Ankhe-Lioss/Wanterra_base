@@ -40,3 +40,8 @@ class Gauntlet_Primary(Bullet):
     def __init__(self, pos, direction, groups,game):
         self.name='Gauntlet_Primary'
         super().__init__(pos,direction,groups,game)
+class Gauntlet_Secondary(Bullet):
+    def __init__(self, pos, direction, groups,game):
+        self.name='Gauntlet_Secondary'
+        super().__init__(pos, direction, groups, game)
+
