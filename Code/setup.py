@@ -1,6 +1,7 @@
 from main import *
 from weapon import *
 def setup(game):
+    game.level=0
     map = load_pygame(join( 'data', 'maps', 'Test_level.tmx'))
     for x, y, image in map.get_layer_by_name('Tile Layer 1').tiles():
         Ground((x * TILE_SIZE, y * TILE_SIZE), image, game.all_sprites)
@@ -19,5 +20,5 @@ def setup(game):
         else:
             if obj.name == 'Poro':
                 Spawn_poro((obj.x, obj.y), game)
-            if obj.name == 'Meele':
+            if obj.name== 'Meele':
                 Spawn_meele((obj.x, obj.y), game)

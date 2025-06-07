@@ -1,8 +1,6 @@
 import pygame
 
 from settings import *
-
-
 class Player(pygame.sprite.Sprite):
     def __init__(self, pos, groups, collision_sprites):
         super().__init__(groups)
@@ -60,6 +58,7 @@ class Player(pygame.sprite.Sprite):
                 else:
                     if self.direction.y < 0: self.hitbox_rect.top = sprite.rect.bottom
                     if self.direction.y > 0: self.hitbox_rect.bottom = sprite.rect.top
+
     def update_state(self):
         if self.direction.x != 0 or self.direction.y != 0:
             # Cardinal directions

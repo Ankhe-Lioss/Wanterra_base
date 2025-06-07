@@ -1,110 +1,52 @@
 from settings import *
-class Poro(pygame.sprite.Sprite):
-    def __init__(self, pos, groups, game):
+class Enemy(pygame.sprite.Sprite):
+    def __init__(self, pos, stats, groups, game):
+        #load object to interact
         super().__init__(groups)
-        self.player =game.player
-        #load
-        self.load_frames()
-        # image
-        self.frame_index=0
-        self.image = self.frames[self.frame_index]
-        self.animation_speed = 6
+        self.player=game.player
+        self.game=game
+        self.level=game.level
+        self.collision_sprites=game.collision_sprites
         self.enemy_sprite=game.enemy_sprites
-        # rect
-        self.rect = self.image.get_frect(center=pos)
-        self.hitbox_rect = self.rect.inflate(0, 0)
-        self.collision_sprites = game.collision_sprites
-        self.direction = pygame.Vector2()
-        self.speed = 350
+        self.frame_index = 0
         self.death_time=0
         self.death_duration=400
-    def load_frames(self):
-        self.frames = []
-
-        for i in range(0, 6):
-            surf = pygame.image.load(join('images', 'enemies', 'Poro', f'{i}.png')).convert_alpha()
-            self.frames.append(surf)
-
-    def animate(self, dt):
-        self.frame_index += self.animation_speed * dt
-        self.image = self.frames[int(self.frame_index) % len(self.frames)]
-
-    def move(self, dt):
-        # get direction
-        player_pos = pygame.Vector2(self.player.rect.center)
-        enemy_pos = pygame.Vector2(self.rect.center)
-        self.direction = (player_pos - enemy_pos).normalize() if (player_pos-enemy_pos) else (player_pos-enemy_pos)
-
-        # update the rect position + collision
-        self.hitbox_rect.x += self.direction.x * self.speed * dt
-        self.collision('horizontal',dt)
-        self.hitbox_rect.y += self.direction.y * self.speed * dt
-        self.collision('vertical',dt)
-        self.rect.center = self.hitbox_rect.center
-
-    def collision(self, direction,dt):
-        for sprite in self.collision_sprites:
-                if sprite.rect.colliderect(self.hitbox_rect):
-                    if direction == 'horizontal':
-                        if self.direction.x > 0: self.hitbox_rect.right = sprite.rect.left
-                        if self.direction.x < 0: self.hitbox_rect.left = sprite.rect.right
-                    else:
-                        if self.direction.y < 0: self.hitbox_rect.top = sprite.rect.bottom
-                        if self.direction.y > 0: self.hitbox_rect.bottom = sprite.rect.top
-        for sprite in self.enemy_sprite:
-                if self!=sprite:
-                    if sprite.rect.colliderect(self.hitbox_rect):
-                        if direction == 'horizontal':
-                            self.hitbox_rect.x -= self.direction.x * self.speed * dt
-                        else:
-                            self.hitbox_rect.y -= self.direction.y * self.speed * dt
-    def destroy(self):
-        self.death_time=pygame.time.get_ticks()
-        destroy_surf=pygame.mask.from_surface(self.frames[0]).to_surface()
-        destroy_surf.set_colorkey('black')
-        self.image=destroy_surf
-    def death_timer(self):
-        if pygame.time.get_ticks()-self.death_time>=self.death_duration:
-            self.kill()
-
-    def update(self, dt):
-        if self.death_time==0:
-            self.move(dt)
-            self.animate(dt)
-        else:
-            self.death_timer()
-class Meele(pygame.sprite.Sprite):
-    def __init__(self, pos, groups, player,enemysprite,collision_sprites):
-        super().__init__(groups)
-        self.player = player
+        # stats
+        self.raw_hp = stats[0]
+        self.raw_atk = stats[1]
+        self.raw_def = stats[2]
+        self.basespd = stats[3]
+        self.hp_multiplier = stats[4]
+        self.atk_multiplier = stats[5]
+        self.def_multiplier = stats[6]
+        self.updstat()
+        self.hp = self.maxhp
+        self.atk = self.baseatk
+        self.def_ = self.basedef
+        self.speed = self.basespd
         #load
         self.load_frames()
         # image
-        self.frame_index=0
         self.image = self.frames[self.frame_index]
-        self.animation_speed = 6
-        self.enemy_sprite=enemysprite
+        self.animation_speed = 12
         # rect
         self.rect = self.image.get_frect(center=pos)
-        self.hitbox_rect = self.rect.inflate(0, 0)
-        self.collision_sprites = collision_sprites
-        self.direction = pygame.Vector2()
-        self.speed = 350
-        self.death_time=0
-        self.death_duration=400
-
+    def updstat(self):
+        self.maxhp = self.raw_hp + self.level * self.hp_multiplier
+        self.baseatk = self.raw_atk + self.level * self.atk_multiplier
+        self.basedef = self.raw_def + self.level * self.def_multiplier
     def load_frames(self):
         self.frames = []
 
         for i in range(0, 6):
-            surf = pygame.image.load(join('images', 'enemies', 'Meele', f'{i}.png')).convert_alpha()
+            surf = pygame.image.load(join('images', 'enemies', f'{self.name}', f'{i}.png')).convert_alpha()
             self.frames.append(surf)
 
     def animate(self, dt):
         self.frame_index += self.animation_speed * dt
         self.image = self.frames[int(self.frame_index) % len(self.frames)]
 
-    def move(self, dt):
+    def move_enemy(self, dt):
         # get direction
         player_pos = pygame.Vector2(self.player.rect.center)
         enemy_pos = pygame.Vector2(self.rect.center)
@@ -112,20 +54,23 @@ class Meele(pygame.sprite.Sprite):
 
         # update the rect position + collision
         self.hitbox_rect.x += self.direction.x * self.speed * dt
-        self.collision('horizontal',dt)
+        self.collision('horizontal')
+        self.enemy_collision('horizontal',dt)
         self.hitbox_rect.y += self.direction.y * self.speed * dt
-        self.collision('vertical',dt)
+        self.collision('vertical')
+        self.enemy_collision('vertical',dt)
         self.rect.center = self.hitbox_rect.center
 
-    def collision(self, direction,dt):
+    def collision(self, direction):
         for sprite in self.collision_sprites:
-                if sprite.rect.colliderect(self.hitbox_rect):
-                    if direction == 'horizontal':
-                        if self.direction.x > 0: self.hitbox_rect.right = sprite.rect.left
-                        if self.direction.x < 0: self.hitbox_rect.left = sprite.rect.right
-                    else:
-                        if self.direction.y < 0: self.hitbox_rect.top = sprite.rect.bottom
-                        if self.direction.y > 0: self.hitbox_rect.bottom = sprite.rect.top
+            if sprite.rect.colliderect(self.hitbox_rect):
+                if direction == 'horizontal':
+                    if self.direction.x > 0: self.hitbox_rect.right = sprite.rect.left
+                    if self.direction.x < 0: self.hitbox_rect.left = sprite.rect.right
+                else:
+                    if self.direction.y < 0: self.hitbox_rect.top = sprite.rect.bottom
+                    if self.direction.y > 0: self.hitbox_rect.bottom = sprite.rect.top
+    def enemy_collision(self,direction,dt):
         for sprite in self.enemy_sprite:
                 if self!=sprite:
                     if sprite.rect.colliderect(self.hitbox_rect):
@@ -144,8 +89,20 @@ class Meele(pygame.sprite.Sprite):
 
     def update(self, dt):
         if self.death_time==0:
-            self.move(dt)
+            self.move_enemy(dt)
             self.animate(dt)
         else:
             self.death_timer()
 
+
+class Poro(Enemy):
+    def __init__(self, pos,stats, groups, game):
+        self.name='Poro'
+        super().__init__(pos,stats,groups,game)
+
+        self.hitbox_rect = self.rect.inflate(0, 0)
+class Meele(Enemy):
+    def __init__(self, pos,stats, groups, game):
+        self.name='Meele'
+        super().__init__(pos,stats,groups,game)
+        self.hitbox_rect = self.rect.inflate(0, 0)

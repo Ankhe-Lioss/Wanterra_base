@@ -1,4 +1,6 @@
 #import lib
+import os
+
 import pygame.sprite
 from random import randint, choice
 from pytmx.util_pygame import load_pygame
@@ -20,7 +22,6 @@ class Game:
         pygame.display.set_caption('Warnterra')
         self.clock = pygame.time.Clock()
         self.running = True
-
         # groupsz
         self.all_sprites = AllSprites()
         self.collision_sprites = pygame.sprite.Group()
@@ -41,7 +42,7 @@ class Game:
 
             # update
             self.all_sprites.update(dt)
-
+            print(self.level)
             # draw
             self.display_surface.fill('black')
             self.all_sprites.draw(self.player.rect.center)
@@ -50,5 +51,6 @@ class Game:
         pygame.quit()
 
 if __name__ == '__main__':
+
     game = Game()
     game.run()
