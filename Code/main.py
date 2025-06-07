@@ -15,6 +15,7 @@ from enemies import *
 from weapon import *
 from projectiles import *
 from setup import *
+from cursor import *
 class Game:
     def __init__(self):
         pygame.init()
@@ -22,6 +23,7 @@ class Game:
         pygame.display.set_caption('Warnterra')
         self.clock = pygame.time.Clock()
         self.running = True
+        pygame.mouse.set_visible(False)
         # groupsz
         self.all_sprites = AllSprites()
         self.collision_sprites = pygame.sprite.Group()
@@ -45,6 +47,7 @@ class Game:
             # draw
             self.display_surface.fill('black')
             self.all_sprites.draw(self.player.rect.center)
+            cursor(self)
             pygame.display.update()
 
         pygame.quit()
