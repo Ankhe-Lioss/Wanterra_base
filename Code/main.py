@@ -42,7 +42,6 @@ class Game:
 
             # update
             self.all_sprites.update(dt)
-            print(self.level)
             # draw
             self.display_surface.fill('black')
             self.all_sprites.draw(self.player.rect.center)

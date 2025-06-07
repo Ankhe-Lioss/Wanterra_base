@@ -5,16 +5,87 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1a9cb1f2-7068-45bb-a586-1076765e5cdd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Code/entity_stat.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/OOP Game.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/OOP Game.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/enemies.py" beforeDir="false" afterPath="$PROJECT_DIR$/Code/enemies.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Code/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/player.py" beforeDir="false" afterPath="$PROJECT_DIR$/Code/player.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/Code/setup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/spawn.py" beforeDir="false" afterPath="$PROJECT_DIR$/Code/spawn.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/stat.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/Piskel-0.14.0.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/credits.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/d3dcompiler_47.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/ffmpeg.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/icudtl.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/libEGL.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/libGLESv2.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/locales/am.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/locales/ar.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/locales/bg.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/locales/bn.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/locales/ca.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/locales/cs.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/locales/da.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/locales/de.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/locales/el.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/locales/en-GB.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/locales/en-US.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/locales/es-419.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/locales/es.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/locales/et.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/locales/fa.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/locales/fi.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/locales/fil.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/locales/fr.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/locales/gu.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/locales/he.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/locales/hi.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/locales/hr.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/locales/hu.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/locales/id.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/locales/it.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/locales/ja.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/locales/kn.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/locales/ko.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/locales/lt.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/locales/lv.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/locales/ml.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/locales/mr.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/locales/ms.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/locales/nb.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/locales/nl.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/locales/pl.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/locales/pt-BR.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/locales/pt-PT.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/locales/ro.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/locales/ru.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/locales/sk.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/locales/sl.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/locales/sr.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/locales/sv.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/locales/sw.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/locales/ta.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/locales/te.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/locales/th.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/locales/tr.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/locales/uk.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/locales/vi.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/locales/zh-CN.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/locales/zh-TW.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/natives_blob.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/node.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/nw.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/nw_100_percent.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/nw_200_percent.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/nw_elf.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/resources.pak" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Meele/Piskel-0.14.0/Piskel-0.14.0/snapshot_blob.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Poro/0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Poro/1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Poro/2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Poro/3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Poro/4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/enemies/Poro/5.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,35 +126,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.$FileDir$.executor": "Debug",
-    "Python.1.executor": "Run",
-    "Python.Main.executor": "Run",
-    "Python.enemies.executor": "Run",
-    "Python.gun.executor": "Run",
-    "Python.main.executor": "Run",
-    "Python.player.executor": "Debug",
-    "Python.projectiles.executor": "Run",
-    "Python.setup.executor": "Run",
-    "Python.spawn.executor": "Run",
-    "Python.sprites.executor": "Run",
-    "Python.stat.executor": "Run",
-    "Python.test.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/OOP Game/Code/main.py",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.$FileDir$.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.enemies.executor&quot;: &quot;Run&quot;,
+    &quot;Python.gun.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.player.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.projectiles.executor&quot;: &quot;Run&quot;,
+    &quot;Python.setup.executor&quot;: &quot;Run&quot;,
+    &quot;Python.spawn.executor&quot;: &quot;Run&quot;,
+    &quot;Python.sprites.executor&quot;: &quot;Run&quot;,
+    &quot;Python.stat.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/OOP Game/Code/main.py&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\OOP Game\Code" />
@@ -143,7 +214,8 @@
       <workItem from="1749231954708" duration="47000" />
       <workItem from="1749232007885" duration="279000" />
       <workItem from="1749257369723" duration="1096000" />
-      <workItem from="1749287313619" duration="4853000" />
+      <workItem from="1749287313619" duration="7354000" />
+      <workItem from="1749306528619" duration="2465000" />
     </task>
     <servers />
   </component>
@@ -182,7 +254,7 @@
     <SUITE FILE_PATH="coverage/test_py$sprites.coverage" NAME="sprites Coverage Results" MODIFIED="1748831075012" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Code" />
     <SUITE FILE_PATH="coverage/player_py$main.coverage" NAME="main Coverage Results" MODIFIED="1749127803716" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Code" />
     <SUITE FILE_PATH="coverage/main_py$enemies.coverage" NAME="enemies Coverage Results" MODIFIED="1749227811092" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Code" />
-    <SUITE FILE_PATH="coverage/player_py$Main.coverage" NAME="Main Coverage Results" MODIFIED="1749292198989" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$ContentRoot$" />
+    <SUITE FILE_PATH="coverage/player_py$Main.coverage" NAME="Main Coverage Results" MODIFIED="1749308960013" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$ContentRoot$" />
     <SUITE FILE_PATH="coverage/test_py$projectiles.coverage" NAME="projectiles Coverage Results" MODIFIED="1748832913117" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Code" />
     <SUITE FILE_PATH="coverage/enemies_py$test.coverage" NAME="test Coverage Results" MODIFIED="1748881130148" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Code" />
     <SUITE FILE_PATH="coverage/test_py$test.coverage" NAME="test Coverage Results" MODIFIED="1749018793762" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Code" />

@@ -8,7 +8,9 @@ class Enemy(pygame.sprite.Sprite):
         self.level=game.level
         self.collision_sprites=game.collision_sprites
         self.enemy_sprite=game.enemy_sprites
-        self.frame_index = 0
+        #side calculation
+        self.animation_speed = 6
+
         self.death_time=0
         self.death_duration=400
         # stats
@@ -24,11 +26,14 @@ class Enemy(pygame.sprite.Sprite):
         self.atk = self.baseatk
         self.def_ = self.basedef
         self.speed = self.basespd
-        #load
+        #load default state
+        self.frame_index = 0
+        self.states=['Walking','Attacking']
+        self.state='Walking'
+        #load image
         self.load_frames()
         # image
-        self.image = self.frames[self.frame_index]
-        self.animation_speed = 12
+        self.image = self.frames['Walking'][0]
         # rect
         self.rect = self.image.get_frect(center=pos)
     def updstat(self):
@@ -36,15 +41,20 @@ class Enemy(pygame.sprite.Sprite):
         self.baseatk = self.raw_atk + self.level * self.atk_multiplier
         self.basedef = self.raw_def + self.level * self.def_multiplier
     def load_frames(self):
-        self.frames = []
-
-        for i in range(0, 6):
-            surf = pygame.image.load(join('images', 'enemies', f'{self.name}', f'{i}.png')).convert_alpha()
-            self.frames.append(surf)
+        self.frames = {}
+        for i in self.states :
+            self.frames[i] = []
+        for state in self.frames.keys():
+            for k in range(0, 6):
+                surf = pygame.image.load(join('images', 'enemies',f'{self.name}',f'{state}',f'{k}.png')).convert_alpha()
+                self.frames["Walking"].append(surf)
 
     def animate(self, dt):
         self.frame_index += self.animation_speed * dt
-        self.image = self.frames[int(self.frame_index) % len(self.frames)]
+        self.image = self.frames[self.state][int(self.frame_index) % len(self.frames[self.state])]
+        if hasattr(self, 'asymmetry') and self.direction.x < 0:
+            self.image = pygame.transform.flip(self.image, True, False)
+
 
     def move_enemy(self, dt):
         # get direction
@@ -80,7 +90,7 @@ class Enemy(pygame.sprite.Sprite):
                             self.hitbox_rect.y -= self.direction.y * self.speed * dt
     def destroy(self):
         self.death_time=pygame.time.get_ticks()
-        destroy_surf=pygame.mask.from_surface(self.frames[0]).to_surface()
+        destroy_surf=pygame.mask.from_surface(self.frames['Walking'][0]).to_surface()
         destroy_surf.set_colorkey('black')
         self.image=destroy_surf
     def death_timer(self):
@@ -106,3 +116,4 @@ class Meele(Enemy):
         self.name='Meele'
         super().__init__(pos,stats,groups,game)
         self.hitbox_rect = self.rect.inflate(0, 0)
+        self.asymmetry=True
