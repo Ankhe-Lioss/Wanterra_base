@@ -1,6 +1,7 @@
 import pygame
 
 from settings import *
+from skill import *
 class Player(pygame.sprite.Sprite):
     def __init__(self, pos, groups, collision_sprites):
         super().__init__(groups)
@@ -21,7 +22,7 @@ class Player(pygame.sprite.Sprite):
     def get_mouse_direction(self):
         mouse_pos = pygame.Vector2(pygame.mouse.get_pos())
         player_pos = pygame.Vector2(WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2)
-        self.mouse_direction = (mouse_pos - player_pos).normalize()
+        self.mouse_direction = (mouse_pos - player_pos).normalize() if (mouse_pos-player_pos) else (mouse_pos-player_pos)
 
     def load_image(self):
         # Include the 8 directions
