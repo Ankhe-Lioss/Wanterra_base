@@ -6,10 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1a9cb1f2-7068-45bb-a586-1076765e5cdd" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Code/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/player.py" beforeDir="false" afterPath="$PROJECT_DIR$/Code/player.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/skill.py" beforeDir="false" afterPath="$PROJECT_DIR$/Code/skill.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/weapon.py" beforeDir="false" afterPath="$PROJECT_DIR$/Code/weapon.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +29,7 @@
     <setting file="file://$PROJECT_DIR$/code/main.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/code/player.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/code/projectiles.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/code/setup.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/code/setlevel.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/code/skill.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/code/spawn.py" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/code/sprites.py" root0="SKIP_INSPECTION" />
@@ -50,36 +46,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.$FileDir$.executor": "Debug",
-    "Python.1.executor": "Run",
-    "Python.Main.executor": "Run",
-    "Python.enemies.executor": "Run",
-    "Python.gun.executor": "Run",
-    "Python.main.executor": "Run",
-    "Python.player.executor": "Debug",
-    "Python.projectiles.executor": "Run",
-    "Python.setup.executor": "Run",
-    "Python.spawn.executor": "Run",
-    "Python.sprites.executor": "Run",
-    "Python.stat.executor": "Run",
-    "Python.test.executor": "Run",
-    "Python.weapon.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/OOP Game/Code/main.py",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.$FileDir$.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.1.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.enemies.executor&quot;: &quot;Run&quot;,
+    &quot;Python.gun.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.player.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.projectiles.executor&quot;: &quot;Run&quot;,
+    &quot;Python.setup.executor&quot;: &quot;Run&quot;,
+    &quot;Python.spawn.executor&quot;: &quot;Run&quot;,
+    &quot;Python.sprites.executor&quot;: &quot;Run&quot;,
+    &quot;Python.stat.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.weapon.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/OOP Game/Code/main.py&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\OOP Game\Code" />
@@ -142,6 +138,8 @@
       <workItem from="1749287313619" duration="7354000" />
       <workItem from="1749306528619" duration="22432000" />
       <workItem from="1749331251318" duration="345000" />
+      <workItem from="1749331894344" duration="409000" />
+      <workItem from="1749360177200" duration="1714000" />
     </task>
     <servers />
   </component>
@@ -181,7 +179,7 @@
     <SUITE FILE_PATH="coverage/player_py$weapon.coverage" NAME="weapon Coverage Results" MODIFIED="1749331591727" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/code" />
     <SUITE FILE_PATH="coverage/player_py$main.coverage" NAME="main Coverage Results" MODIFIED="1749127803716" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Code" />
     <SUITE FILE_PATH="coverage/main_py$enemies.coverage" NAME="enemies Coverage Results" MODIFIED="1749227811092" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Code" />
-    <SUITE FILE_PATH="coverage/player_py$Main.coverage" NAME="Main Coverage Results" MODIFIED="1749331664395" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$ContentRoot$" />
+    <SUITE FILE_PATH="coverage/player_py$Main.coverage" NAME="Main Coverage Results" MODIFIED="1749361884691" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$ContentRoot$" />
     <SUITE FILE_PATH="coverage/test_py$projectiles.coverage" NAME="projectiles Coverage Results" MODIFIED="1748832913117" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Code" />
     <SUITE FILE_PATH="coverage/enemies_py$test.coverage" NAME="test Coverage Results" MODIFIED="1748881130148" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Code" />
     <SUITE FILE_PATH="coverage/test_py$test.coverage" NAME="test Coverage Results" MODIFIED="1749018793762" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Code" />

@@ -18,7 +18,4 @@ def setlevel(game):
             game.player = Player((obj.x, obj.y), game.all_sprites, game.collision_sprites)
             game.gun = Weapon(game.all_sprites, game)
         else:
-            if obj.name == 'Poro':
-                Spawn_poro((obj.x, obj.y), game)
-            if obj.name== 'Meele':
-                Spawn_meele((obj.x, obj.y), game)
+            Spawn_animation((obj.x, obj.y), game.all_sprites,game,obj.name)
