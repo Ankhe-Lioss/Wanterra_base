@@ -31,7 +31,6 @@ class Game:
         self.enemy_sprites = pygame.sprite.Group()
         # setup
         setlevel(self)
-
     def run(self):
         while self.running:
             # dt
@@ -48,7 +47,6 @@ class Game:
             self.all_sprites.draw(self.player.rect.center)
             cursor(self)
             pygame.display.update()
-
         pygame.quit()
 
 if __name__ == '__main__':

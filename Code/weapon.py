@@ -17,9 +17,9 @@ class Weapon(pygame.sprite.Sprite):
         self.rect = self.image.get_frect(center=self.player.rect.center)
         self.primary=Gauntlet_primary(self)
         self.secondary=Teleport(self)
-        self.q_skill=Gauntlet_primary(self)
+        self.q_skill=Gauntlet_secondary(self)
         self.e_skill=Gauntlet_secondary(self)
-        self.space_skill=Gauntlet_primary(self)
+        self.r_skill=Gauntlet_skillR(self)
     def input(self):
         if pygame.mouse.get_pressed()[0]:
             self.primary.execute()
@@ -29,8 +29,8 @@ class Weapon(pygame.sprite.Sprite):
             self.q_skill.execute()
         if pygame.key.get_pressed()[pygame.K_e]:
             self.e_skill.execute()
-        if pygame.key.get_pressed()[pygame.K_SPACE]:
-            self.space_skill.execute()
+        if pygame.key.get_pressed()[pygame.K_r]:
+            self.r_skill.execute()
     def rotate_gun(self):
         self.mouse_direction = self.player.mouse_direction
         angle = degrees(atan2(self.mouse_direction.x, self.mouse_direction.y))+180
