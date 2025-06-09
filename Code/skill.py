@@ -4,16 +4,16 @@ class Skill():
     def __init__(self, weapon):
         self.weapon=weapon
         self.can_skill = True
-        self.shoot_time = 0
+        self.use_time = 0
     def check(self):
         if self.can_skill:
             self.using_skill()
             self.can_skill = False
-            self.shoot_time = pygame.time.get_ticks()
+            self.use_time = pygame.time.get_ticks()
     def skill_timer(self):
         if not self.can_skill:
             current_time = pygame.time.get_ticks()
-            if current_time - self.shoot_time >= self.skill_cooldown:
+            if current_time - self.use_time >= self.skill_cooldown:
                 self.can_skill = True
     def execute(self):
         self.skill_timer()
@@ -65,4 +65,7 @@ class Teleport(Skill):
         self.weapon.player.speed = 2000
         self.current_teleport_usingtime = pygame.time.get_ticks()
         self.speed_reset_time = self.current_teleport_usingtime + self.skill_duration
+    def turn_off(self):
+        self.weapon.player.speed = self.normal_speed
+        self.speed_reset_time = None
 

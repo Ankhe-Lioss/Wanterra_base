@@ -5,18 +5,18 @@
     },
     "activeFile": "maps/Test_level.tmx",
     "expandedProjectPaths": [
-        ".",
+        "maps",
         "tilesets",
-        "maps"
+        "."
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
         "maps/Test_level.tmx": {
-            "scale": 0.5,
-            "selectedLayer": 2,
+            "scale": 0.25,
+            "selectedLayer": 4,
             "viewCenter": {
-                "x": 1345,
-                "y": 473
+                "x": 1026,
+                "y": 766
             }
         },
         "maps/Test_level.tmx#Object": {
@@ -50,13 +50,12 @@
     "map.lastUsedFormat": "tmx",
     "map.width": 80,
     "openFiles": [
-        "maps/Test_level.tmx",
-        "tilesets/terrain_atlas.tsx"
+        "maps/Test_level.tmx"
     ],
     "project": "untitled.tiled-project",
     "recentFiles": [
-        "tilesets/terrain_atlas.tsx",
         "maps/Test_level.tmx",
+        "tilesets/terrain_atlas.tsx",
         "tilesets/Objects.tsx",
         "maps/Test_level2.tmx"
     ],

@@ -41,7 +41,5 @@ class Weapon(pygame.sprite.Sprite):
         self.input()
         if self.secondary.speed_reset_time!=None:
             if pygame.time.get_ticks()>=self.secondary.speed_reset_time:
-                self.player.speed = self.secondary.normal_speed
-                self.secondary.speed_reset_time = None
-
+                self.secondary.turn_off()
         self.rect.center = self.player.rect.center + self.mouse_direction*40
