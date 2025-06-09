@@ -1,5 +1,6 @@
 from settings import *
 from livingentity import *
+
 class Enemy(LivingEntity):
     def __init__(self, pos,groups, game):
         #load object to interact
@@ -37,12 +38,13 @@ class Enemy(LivingEntity):
             self.image = pygame.transform.flip(self.image, True, False)
 
 
-    def move_enemy(self, dt):
+    def caL_dis(self):
         # get direction
         player_pos = pygame.Vector2(self.player.rect.center)
         enemy_pos = pygame.Vector2(self.rect.center)
-        self.direction = (player_pos - enemy_pos).normalize() if (player_pos-enemy_pos) else (player_pos-enemy_pos)
-
+        self.distance=player_pos-enemy_pos
+        self.direction = self.distance.normalize() if self.distance else self.distance
+    def move_enemy(self,dt):
         # update the rect position + collision
         self.hitbox_rect.x += self.direction.x * self.speed * dt
         self.collision('horizontal')
@@ -70,6 +72,9 @@ class Enemy(LivingEntity):
 
     def update(self, dt):
         if self.death_time==0:
+            if len(self.status)!=0:
+                check_status(self,dt)
+            self.caL_dis()
             self.move_enemy(dt)
             self.animate(dt)
         else:

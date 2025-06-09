@@ -1,5 +1,6 @@
 from settings import *
-from entity_stat import *
+from stats import *
+from status import *
 class LivingEntity(pygame.sprite.Sprite):
     def __init__(self,groups,game):
         super().__init__(groups)
@@ -21,6 +22,8 @@ class LivingEntity(pygame.sprite.Sprite):
         self.atk = self.baseatk
         self.def_ = self.basedef
         self.speed = self.basespd
+        #status
+        self.status = []
     def updstat(self):
         self.maxhp = self.raw_hp + self.level * self.hp_multiplier
         self.baseatk = self.raw_atk + self.level * self.atk_multiplier
@@ -34,3 +37,11 @@ class LivingEntity(pygame.sprite.Sprite):
                 else:
                     if self.direction.y < 0: self.hitbox_rect.top = sprite.rect.bottom
                     if self.direction.y > 0: self.hitbox_rect.bottom = sprite.rect.top
+    def take_damage(self, dmg):
+        self.hp -= dmg / (1 + 0.01 * self.def_)
+        if self.hp <= 0:
+            self.destroy()
+
+
+
+

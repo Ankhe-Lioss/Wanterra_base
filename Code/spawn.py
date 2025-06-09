@@ -1,6 +1,6 @@
 from settings import *
 from enemies import *
-from entity_stat import *
+from stats import *
 
 def Spawn_poro(pos,game):
     Poro(pos, (game.all_sprites, game.enemy_sprites), game)

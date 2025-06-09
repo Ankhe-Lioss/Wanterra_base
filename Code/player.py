@@ -3,7 +3,7 @@ import pygame
 from settings import *
 from skill import *
 from livingentity import *
-from entity_stat import *
+from stats import *
 class Player(LivingEntity):
     def __init__(self, pos, groups, game):
         self.name='Player'

@@ -1,5 +1,5 @@
 from settings import *
-from bullet import *
+from player_projectiles import *
 class Skill():
     def __init__(self, weapon):
         self.weapon=weapon
@@ -28,21 +28,21 @@ class Gauntlet_primary(Skill):
     def using_skill(self):
         pos = self.weapon.rect.center + self.weapon.mouse_direction * 50
         Gauntlet_Primary(pos, self.weapon.mouse_direction, (self.weapon.game.all_sprites, self.weapon.game.bullet_sprites),self.weapon.game)
-class Gauntlet_secondary(Skill):
+class Gauntlet_skillQ(Skill):
     def __init__(self, weapon):
         super().__init__(weapon)
         self.skill_cooldown = 3000
     def using_skill(self):
         pos = self.weapon.rect.center + self.weapon.mouse_direction * 50
-        Gauntlet_Secondary(pos, self.weapon.mouse_direction,
+        Gauntlet_SkillQ(pos, self.weapon.mouse_direction,
                          (self.weapon.game.all_sprites, self.weapon.game.bullet_sprites), self.weapon.game)
-class Gauntlet_skillR(Skill):
+class Gauntlet_skillE(Skill):
     def __init__(self, weapon):
         super().__init__(weapon)
         self.skill_cooldown = 3000
     def using_skill(self):
         pos = self.weapon.rect.center + self.weapon.mouse_direction * 50
-        Gauntlet_SkillR(pos, self.weapon.mouse_direction,(self.weapon.game.all_sprites, self.weapon.game.bullet_sprites), self.weapon.game)
+        Gauntlet_SkillE(pos, self.weapon.mouse_direction,(self.weapon.game.all_sprites, self.weapon.game.bullet_sprites), self.weapon.game)
 
 
 class Teleport(Skill):

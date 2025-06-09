@@ -1,5 +1,5 @@
 from settings import *
-from bullet import *
+from player_projectiles import *
 from skill import *
 
 class Weapon(pygame.sprite.Sprite):
@@ -17,8 +17,9 @@ class Weapon(pygame.sprite.Sprite):
         self.rect = self.image.get_frect(center=self.player.rect.center)
         self.primary=Gauntlet_primary(self)
         self.secondary=Teleport(self)
-        self.q_skill=Gauntlet_secondary(self)
-        self.e_skill=Gauntlet_skillR(self)
+        self.q_skill=Gauntlet_skillQ(self)
+        self.e_skill=Gauntlet_skillE(self)
+        self.skill_list=[self.primary,self.secondary,self.q_skill,self.e_skill]
     def input(self):
         if pygame.mouse.get_pressed()[0]:
             self.primary.check()
@@ -35,9 +36,5 @@ class Weapon(pygame.sprite.Sprite):
     def update(self, _):
         self.rotate_gun()
         self.input()
-        self.primary.update()
-        self.secondary.update()
-        self.q_skill.update()
-        self.e_skill.update()
-        print(self.primary.cooldown,self.secondary.cooldown,self.q_skill.cooldown,self.e_skill.cooldown)
+        for skill in self.skill_list: skill.update()
         self.rect.center = self.player.rect.center + self.mouse_direction*40

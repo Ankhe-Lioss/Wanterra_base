@@ -13,7 +13,7 @@ from groups import *
 from spawn import *
 from enemies import *
 from weapon import *
-from bullet import *
+from player_projectiles import *
 from setlevel import *
 from cursor import *
 class Game:
