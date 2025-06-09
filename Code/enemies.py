@@ -3,10 +3,8 @@ from livingentity import *
 class Enemy(LivingEntity):
     def __init__(self, pos,groups, game):
         #load object to interact
-        self.level=game.level
-        super().__init__(groups)
+        super().__init__(groups,game)
         self.player=game.player
-        self.game=game
         self.collision_sprites=game.collision_sprites
         self.enemy_sprite=game.enemy_sprites
         #side calculation
@@ -77,12 +75,10 @@ class Enemy(LivingEntity):
         else:
             self.death_timer()
 
-
 class Poro(Enemy):
     def __init__(self, pos, groups, game):
         self.name='Poro'
         super().__init__(pos,groups,game)
-
         self.hitbox_rect = self.rect.inflate(0, 0)
 class Meele(Enemy):
     def __init__(self, pos,groups, game):

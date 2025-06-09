@@ -4,14 +4,12 @@ from entity_stat import *
 
 def Spawn_poro(pos,game):
     Poro(pos, (game.all_sprites, game.enemy_sprites), game)
-
-
 def Spawn_meele(pos,game):
     Meele(pos, (game.all_sprites, game.enemy_sprites), game)
 
-
 def Spawn_animation(pos,game,enemy_name):
     Spawn_animation(pos,(game.all_sprites),game,enemy_name)
+
 class Spawn_animation(pygame.sprite.Sprite):
     def __init__(self, pos,groups,game,enemy_name):
         super().__init__(groups)

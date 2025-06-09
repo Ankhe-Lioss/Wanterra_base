@@ -1,8 +1,12 @@
 from settings import *
 from entity_stat import *
 class LivingEntity(pygame.sprite.Sprite):
-    def __init__(self,groups):
+    def __init__(self,groups,game):
         super().__init__(groups)
+        self.game=game
+        self.level=game.level
+        #interaction
+        self.collision_sprites = game.collision_sprites
         # self.stat
         self.stat=entity_stat[self.name]
         self.raw_hp = self.stat[0]

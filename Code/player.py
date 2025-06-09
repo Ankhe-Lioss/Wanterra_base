@@ -6,12 +6,9 @@ from livingentity import *
 from entity_stat import *
 class Player(LivingEntity):
     def __init__(self, pos, groups, game):
-        self.game=game
         self.name='Player'
-        self.level=game.level
-        super().__init__(groups)
-        #game interactionad
-        self.collision_sprites = game.collision_sprites
+        super().__init__(groups,game)
+        #game interaction
         #graphic loading
         self.load_image()
         self.facing = 'down'
@@ -74,5 +71,4 @@ class Player(LivingEntity):
         self.update_facing()
         self.input()
         self.move(dt)
-        self.get_mouse_direction()
         self.update_animation(dt)
