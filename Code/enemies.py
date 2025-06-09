@@ -1,6 +1,6 @@
 from settings import *
 from livingentity import *
-
+from aoe import *
 class Enemy(LivingEntity):
     def __init__(self, pos,groups, game):
         #load object to interact
@@ -23,6 +23,10 @@ class Enemy(LivingEntity):
         self.image = self.frames['Walking'][0]
         # rect
         self.rect = self.image.get_frect(center=pos)
+        #attack_range
+        self.attack_range=64
+        self.attack_time=1000
+
     def load_frames(self):
         self.frames = {}
         for i in self.states :
@@ -38,7 +42,7 @@ class Enemy(LivingEntity):
             self.image = pygame.transform.flip(self.image, True, False)
 
 
-    def caL_dis(self):
+    def cal_dis(self):
         # get direction
         player_pos = pygame.Vector2(self.player.rect.center)
         enemy_pos = pygame.Vector2(self.rect.center)
@@ -69,12 +73,19 @@ class Enemy(LivingEntity):
     def death_timer(self):
         if pygame.time.get_ticks()-self.death_time>=self.death_duration:
             self.kill()
+    def attacking(self):
+        if self.distance.length() < self.attack_range and not any(
+                statu.effect_type == self.attack_type for statu in self.status):
+            self.status.append(Status(self.attack_type, self.attack_time))
+            self.attack_move()
+
 
     def update(self, dt):
         if self.death_time==0:
             if len(self.status)!=0:
                 check_status(self,dt)
-            self.caL_dis()
+            self.cal_dis()
+            self.attacking()
             self.move_enemy(dt)
             self.animate(dt)
         else:
@@ -85,9 +96,15 @@ class Poro(Enemy):
         self.name='Poro'
         super().__init__(pos,groups,game)
         self.hitbox_rect = self.rect.inflate(0, 0)
+        self.attack_type='Cant_move_attack'
+    def attack_move(self):
+        Poro_stomp(self.rect.center,self.game.all_sprites,self)
 class Meele(Enemy):
     def __init__(self, pos,groups, game):
         self.name='Meele'
         super().__init__(pos,groups,game)
         self.hitbox_rect = self.rect.inflate(0, 0)
         self.asymmetry=True
+        self.attack_type='Cant_move_attack'
+    def attack_move(self):
+        pass

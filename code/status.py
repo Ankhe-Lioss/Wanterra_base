@@ -1,9 +1,7 @@
 class Status:
     def __init__(entity, effect_type, duration):
         entity.effect_type = effect_type
-        entity.duration = duration
-
-
+        entity.duration = duration/1000
 
 def check_status(entity,dt):
     for statu in entity.status:
@@ -18,3 +16,13 @@ def check_status(entity,dt):
             statu.duration-=dt
             if statu.duration<=0:
                 entity.status.remove(statu)
+        if statu.effect_type=='Cant_move_attack':
+            if entity.state!='Attacking':
+                entity.state='Attacking'
+            entity.speed=0
+            statu.duration-=dt
+            if statu.duration<=0:
+                entity.speed=entity.basespd
+                entity.state='Walking'
+                entity.status.remove(statu)
+#Status
