@@ -1,5 +1,5 @@
 from settings import *
-from Bullet import *
+from bullet import *
 class Skill():
     def __init__(self, weapon):
         self.weapon=weapon
@@ -15,9 +15,12 @@ class Skill():
             current_time = pygame.time.get_ticks()
             if current_time - self.use_time >= self.skill_cooldown:
                 self.can_skill = True
-    def execute(self):
+    def update(self):
+        if self.can_skill:
+            self.cooldown=0
+        else:
+            self.cooldown=self.use_time+self.skill_cooldown-pygame.time.get_ticks()
         self.skill_timer()
-        self.check()
 class Gauntlet_primary(Skill):
     def __init__(self, weapon):
         super().__init__(weapon)
@@ -39,8 +42,7 @@ class Gauntlet_skillR(Skill):
         self.skill_cooldown = 3000
     def using_skill(self):
         pos = self.weapon.rect.center + self.weapon.mouse_direction * 50
-        Gauntlet_SkillR(pos, self.weapon.mouse_direction,
-                         (self.weapon.game.all_sprites, self.weapon.game.bullet_sprites), self.weapon.game)
+        Gauntlet_SkillR(pos, self.weapon.mouse_direction,(self.weapon.game.all_sprites, self.weapon.game.bullet_sprites), self.weapon.game)
 
 
 class Teleport(Skill):
@@ -58,4 +60,9 @@ class Teleport(Skill):
     def turn_off(self):
         self.weapon.player.speed = self.normal_speed
         self.speed_reset_time = None
+    def update(self):
+        super().update()
+        if self.speed_reset_time is not None:
+            if pygame.time.get_ticks() >= self.speed_reset_time:
+                self.turn_off()
 

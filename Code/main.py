@@ -13,7 +13,7 @@ from groups import *
 from spawn import *
 from enemies import *
 from weapon import *
-from Bullet import *
+from bullet import *
 from setlevel import *
 from cursor import *
 class Game:
@@ -43,7 +43,7 @@ class Game:
             # update
             self.all_sprites.update(dt)
             # draw
-            self.display_surface.fill('black')
+            self.display_surface.fill('darkgray')
             self.all_sprites.draw(self.player.rect.center)
             cursor(self)
             pygame.display.update()

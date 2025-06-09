@@ -8,10 +8,10 @@ class Bullet(pygame.sprite.Sprite):
         self.angle = degrees(atan2(self.direction.x, self.direction.y)) -90
         self.enemy_sprites=game.enemy_sprites
         self.collision_sprites=game.collision_sprites
-        self.frame = []
+        self.frames = []
         self.load_images()
         self.frame_index = 0
-        self.image = self.frame[self.frame_index]
+        self.image = self.frames[self.frame_index]
         self.animation_speed = 2
         self.rect = self.image.get_frect(center=pos)
         self.spawn_time = pygame.time.get_ticks()
@@ -24,19 +24,21 @@ class Bullet(pygame.sprite.Sprite):
         for i in range(4):
             surf = pygame.image.load(join('images', 'projectiles', f'{folder}',f'{folder1}',f'{i}.png')).convert_alpha()
             surf=pygame.transform.rotozoom(surf, self.angle, 1)
-            self.frame.append(surf)
+            self.frames.append(surf)
     def animate(self, dt):
         self.frame_index+=self.animation_speed*dt
-        self.image = self.frame[int(self.frame_index) % len(self.frame)]
+        self.image = self.frames[int(self.frame_index) % len(self.frames)]
     def bullet_collision(self):
         collision_sprites=pygame.sprite.spritecollide(self,self.enemy_sprites,False,pygame.sprite.collide_mask)
         if collision_sprites:
             for sprite in collision_sprites:
                 sprite.destroy()
-                self.kill()
+                if not hasattr(self,'enemy_penetrate'):
+                    self.kill()
     def collision(self):
         if pygame.sprite.spritecollide(self,self.collision_sprites,False,pygame.sprite.collide_mask):
-            self.kill()
+            if not hasattr(self,'wall_penetrate'):
+                self.kill()
     def update(self, dt):
         self.animate(dt)
         self.rect.center += self.direction * self.speed * dt
@@ -56,8 +58,6 @@ class Gauntlet_SkillR(Bullet):
     def __init__(self, pos, direction, groups,game):
         self.name='Gauntlet_SkillR'
         super().__init__(pos, direction, groups, game)
-    def bullet_collision(self):
-        collision_sprites=pygame.sprite.spritecollide(self,self.enemy_sprites,False,pygame.sprite.collide_mask)
-        if collision_sprites:
-            for sprite in collision_sprites:
-                sprite.destroy()
+        self.enemy_penetrate=True
+        self.wall_penetrate=True
+

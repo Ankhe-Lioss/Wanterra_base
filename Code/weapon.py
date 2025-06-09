@@ -1,5 +1,5 @@
 from settings import *
-from Bullet import *
+from bullet import *
 from skill import *
 
 class Weapon(pygame.sprite.Sprite):
@@ -18,28 +18,26 @@ class Weapon(pygame.sprite.Sprite):
         self.primary=Gauntlet_primary(self)
         self.secondary=Teleport(self)
         self.q_skill=Gauntlet_secondary(self)
-        self.e_skill=Gauntlet_secondary(self)
-        self.r_skill=Gauntlet_skillR(self)
+        self.e_skill=Gauntlet_skillR(self)
     def input(self):
         if pygame.mouse.get_pressed()[0]:
-            self.primary.execute()
+            self.primary.check()
         if pygame.mouse.get_pressed()[2]:
-            self.secondary.execute()
+            self.secondary.check()
         if pygame.key.get_pressed()[pygame.K_q]:
-            self.q_skill.execute()
+            self.q_skill.check()
         if pygame.key.get_pressed()[pygame.K_e]:
-            self.e_skill.execute()
-        if pygame.key.get_pressed()[pygame.K_r]:
-            self.r_skill.execute()
+            self.e_skill.check()
     def rotate_gun(self):
         self.mouse_direction = self.player.mouse_direction
         angle = degrees(atan2(self.mouse_direction.x, self.mouse_direction.y))+180
         self.image = pygame.transform.rotozoom(self.gun_surf, angle, 1)
-
     def update(self, _):
         self.rotate_gun()
         self.input()
-        if self.secondary.speed_reset_time!=None:
-            if pygame.time.get_ticks()>=self.secondary.speed_reset_time:
-                self.secondary.turn_off()
+        self.primary.update()
+        self.secondary.update()
+        self.q_skill.update()
+        self.e_skill.update()
+        print(self.primary.cooldown,self.secondary.cooldown,self.q_skill.cooldown,self.e_skill.cooldown)
         self.rect.center = self.player.rect.center + self.mouse_direction*40
