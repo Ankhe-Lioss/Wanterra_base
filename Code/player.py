@@ -1,11 +1,16 @@
-import pygame
 
+import pygame
 from settings import *
 from skill import *
-class Player(pygame.sprite.Sprite):
+from livingentity import *
+from entity_stat import *
+class Player(LivingEntity):
     def __init__(self, pos, groups, game):
+        self.game=game
+        self.name='Player'
+        self.level=game.level
         super().__init__(groups)
-        #game interaction
+        #game interactionad
         self.collision_sprites = game.collision_sprites
         #graphic loading
         self.load_image()
@@ -20,8 +25,6 @@ class Player(pygame.sprite.Sprite):
         self.mouse_direction = pygame.Vector2()
         # movement 
         self.direction = pygame.Vector2()
-        #load player stat
-        self.speed = 500
     def get_mouse_direction(self):
         mouse_pos = pygame.Vector2(pygame.mouse.get_pos())
         player_pos = pygame.Vector2(WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2)
@@ -59,19 +62,8 @@ class Player(pygame.sprite.Sprite):
         self.hitbox_rect.y += self.direction.y * self.speed * dt
         self.collision('vertical')
         self.rect.center = self.hitbox_rect.center
-
-    def collision(self, direction):
-        for sprite in self.collision_sprites:
-            if sprite.rect.colliderect(self.hitbox_rect):
-                if direction == 'horizontal':
-                    if self.direction.x > 0: self.hitbox_rect.right = sprite.rect.left
-                    if self.direction.x < 0: self.hitbox_rect.left = sprite.rect.right
-                else:
-                    if self.direction.y < 0: self.hitbox_rect.top = sprite.rect.bottom
-                    if self.direction.y > 0: self.hitbox_rect.bottom = sprite.rect.top
     def update_facing(self):
         angle = - degrees(atan2(self.mouse_direction.x,self.mouse_direction.y)) + 180
-
         self.facing = self.facings[int((angle + 22.5 if angle <= 337.5 else angle + 22.5 - 360) / 45)]
     def update_animation(self, dt):
         self.frame_index = self.frame_index + (6 * dt if self.direction else 0)

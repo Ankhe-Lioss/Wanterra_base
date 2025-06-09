@@ -1,5 +1,5 @@
 from settings import *
-from projectiles import *
+from Bullet import *
 from skill import *
 
 class Weapon(pygame.sprite.Sprite):
