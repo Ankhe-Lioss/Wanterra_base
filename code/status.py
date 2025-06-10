@@ -1,3 +1,4 @@
+import pygame
 class Status:
     def __init__(entity, effect_type, duration):
         entity.effect_type = effect_type
@@ -24,5 +25,14 @@ def check_status(entity,dt):
             if statu.duration<=0:
                 entity.speed=entity.basespd
                 entity.state='Walking'
+                entity.status.remove(statu)
+        if statu.effect_type=='damaged':
+            if pygame.time.get_ticks() % 150< 75:  # Visible half the time
+                entity.visible = False
+            else:
+                entity.visible = True
+            statu.duration-=dt
+            if statu.duration<=0:
+                entity.visible = True
                 entity.status.remove(statu)
 #Status

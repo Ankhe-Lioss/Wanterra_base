@@ -65,12 +65,19 @@ class Player(LivingEntity):
     def update_animation(self, dt):
         self.frame_index = self.frame_index + (6 * dt if self.direction else 0)
         self.image = self.frames[self.facing][int(self.frame_index) % len(self.frames[self.facing])]
+    def take_damage(self,dmg):
+        if not any(statu.effect_type=='damaged' for statu in self.status):
+            super().take_damage(dmg)
+            self.status.append(Status('damaged',350))
+            hurt_sound.play()
     def destroy(self):
         self.game.running=False
         print('u loose bitchess')
     def update(self, dt):
         self.get_mouse_direction()
         self.update_facing()
-        self.input()
         self.update_animation(dt)
+        check_status(self,dt)
+        self.input()
+
         self.move(dt)

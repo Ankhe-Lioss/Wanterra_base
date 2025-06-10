@@ -4,20 +4,7 @@ from enemy_projectiles import *
 from aoe import *
 from aoe_warning import *
 from load_audio import *
-skill_stats = {
-#   "Skill" : (cooldown, warmup, cast_time,duration)
-
-    #Gautlet Skill
-    "Gauntlet_primary" : (1000, 0, 0,0,Gauntlet_primary_sound),
-    "Teleport" : (1500, 0, 0,100,Gauntlet_primary_sound),
-    "Gauntlet_skillQ" : (5000, 0, 0,0,Gauntlet_skillQ_sound),
-    "Gauntlet_skillE" : (15000, 0, 0,0,Gauntlet_skillE_sound),
-    #Enemy Skill
-    "Karthus_primary" : (1000, 0, 0,500,Gauntlet_primary_sound),
-    "Poro_stomp":(1000, 0, 0,1000,Gauntlet_primary_sound),
-    "Chogath_stomp": (1000, 0, 0, 1000, Gauntlet_primary_sound)
-
-}
+from stat import *
 
 class Skill():
     def __init__(self, user):

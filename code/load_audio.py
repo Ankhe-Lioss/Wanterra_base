@@ -8,12 +8,16 @@ pygame.mixer.init()  # Ensure the mixer is initialized before using sound featur
 
 # Load background audio
 background = pygame.mixer.Sound(join('audio', 'background.ogg'))
-background.set_volume(0.6)
+background.set_volume(0.05)
 
 Gauntlet_Primary_sound=pygame.mixer.Sound(join('audio','projectiles', 'Gauntlet_Primary_Hit.ogg'))
+Gauntlet_Primary_sound.set_volume(1.2)
 Gautlet_SkillQ_sound=pygame.mixer.Sound(join('audio','projectiles', 'Gauntlet_SkillQ_Hit.ogg'))
 Gauntlet_SkillE_sound=pygame.mixer.Sound(join('audio','projectiles', 'Gauntlet_SkillE_Hit.ogg'))
 Gauntlet_primary_sound = pygame.mixer.Sound(join('audio','skill','Gauntlet_Primary_Start.ogg'))
 Gauntlet_skillQ_sound=pygame.mixer.Sound(join('audio','skill', 'Gauntlet_SkillQ_Start.ogg'))
 Gauntlet_skillE_sound=pygame.mixer.Sound(join('audio', 'skill','Gauntlet_SkillE_Start.ogg'))
 hit_sound=pygame.mixer.Sound(join('audio','impact.ogg'))
+hit_sound.set_volume(0.5)
+hurt_sound=pygame.mixer.Sound(join('audio','hurt.ogg'))
+hurt_sound.set_volume(0.5)
