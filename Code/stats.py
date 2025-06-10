@@ -3,7 +3,8 @@ entity_stat = {
     "Player" : (500, 100, 10, 750, 50, 20, 5,0),
     "Poro"   : (250, 50 , 10, 500, 75, 10, 2,64),
     "Meele"   : (300, 50 , 10, 500, 75, 10, 2,64),
-    "Karthus"   : (300, 50 , 10, 500, 75, 10,2, 320)
+    "Karthus"   : (300, 50 , 10, 500, 75, 10,2, 320),
+    "Chogath"   : (300, 50 , 10, 500, 75, 10,2, 320)
 }
 player_projectiles = {
 #   "proj" : (atk_scale_multification, speed)
@@ -13,6 +14,6 @@ player_projectiles = {
 }
 enemy_projectiles = {
 #   "proj" : (atk_scale_multification, speed)
-    "Karthus_Primary" : (1, 1000),
+    "Karthus_Primary" : (2, 1000),
 
 }

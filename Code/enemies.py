@@ -1,7 +1,7 @@
 from settings import *
 from livingentity import *
 from aoe import *
-from enemy_projectile import *
+from enemy_projectiles import *
 from skill import *
 class Enemy(LivingEntity):
     def __init__(self, pos,groups, game):
@@ -25,8 +25,8 @@ class Enemy(LivingEntity):
         self.image = self.frames['Walking'][0]
         # rect
         self.rect = self.image.get_frect(center=pos)
-        #attack_range
-        self.attack_time=1000
+        #skill
+        self.skills=[]
 
     def load_frames(self):
         self.frames = {}
@@ -75,17 +75,17 @@ class Enemy(LivingEntity):
         if pygame.time.get_ticks()-self.death_time>=self.death_duration:
             self.kill()
     def attacking(self):
-        if self.distance.length() < self.atk_range and not any(
-                statu.effect_type == self.attack_type for statu in self.status):
-            self.status.append(Status(self.attack_type, self.attack_time))
-            self.attack_move()
-
-
+        if self.distance.length() <= self.atk_range:
+            for skill in self.skills:
+                if skill.can_cast:
+                    skill.check()
     def update(self, dt):
         if self.death_time==0:
             if len(self.status)!=0:
                 check_status(self,dt)
             self.cal_dis()
+            for skill in self.skills:
+                skill.update(dt)
             self.attacking()
             self.move_enemy(dt)
             self.animate(dt)
@@ -97,25 +97,28 @@ class Poro(Enemy):
         self.name='Poro'
         super().__init__(pos,groups,game)
         self.hitbox_rect = self.rect.inflate(0, 0)
-        self.attack_type='Cant_move_attack'
-    def attack_move(self):
-        Poro_stomp(self.rect.center,self.game.all_sprites,self)
+        self.Primary=Poro_stomp(self)
+        self.skills.append(self.Primary)
+
 class Meele(Enemy):
     def __init__(self, pos,groups, game):
         self.name='Meele'
         super().__init__(pos,groups,game)
         self.hitbox_rect = self.rect.inflate(0, 0)
         self.asymmetry=True
-        self.attack_type='Cant_move_attack'
-    def attack_move(self):
-        pass
 class Karthus(Enemy):
     def __init__(self, pos,groups, game):
         self.name='Karthus'
         super().__init__(pos,groups,game)
         self.hitbox_rect = self.rect.inflate(0, 0)
         self.asymmetry=True
-        self.attack_type='Cant_move_attack'
         self.attack_time=1000
-    def attack_move(self):
-        Karthus_Primary(self.rect.center,self.direction,self.game.all_sprites,self.game,self)
+        self.Primary = Karthus_primary(self)
+        self.skills.append(self.Primary)
+class Chogath(Enemy):
+    def __init__(self, pos,groups, game):
+        self.name='Chogath'
+        super().__init__(pos,groups,game)
+        self.hitbox_rect = self.rect.inflate(0, 0)
+        self.asymmetry=True
+        self.attack_time=1000

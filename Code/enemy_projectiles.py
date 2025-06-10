@@ -5,14 +5,15 @@ from projectiles import *
 from stats import *
 from status import *
 class Enemy_projectiles(Projectiles):
-    def __init__(self, pos, direction, groups,game):
+    def __init__(self, user, direction, groups,game):
+        self.user=user
+        pos=user.rect.center
         super().__init__(pos,direction,groups,game)
         self.enemy_sprites=game.player_sprites
         #load combat stat
         self.atk=enemy_projectiles[self.name][0]
         self.speed=enemy_projectiles[self.name][1]
 class Karthus_Primary(Enemy_projectiles):
-    def __init__(self, pos, direction, groups,game,user):
+    def __init__(self, user, direction, groups,game):
         self.name='Karthus_Primary'
-        super().__init__(pos,direction,groups,game)
-        self.user=user
+        super().__init__(user,direction,groups,game)

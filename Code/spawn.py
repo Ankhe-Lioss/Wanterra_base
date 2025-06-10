@@ -8,6 +8,8 @@ def Spawn_meele(pos,game):
     Meele(pos, (game.all_sprites, game.enemy_sprites), game)
 def Spawn_karthus(pos,game):
     Karthus(pos, (game.all_sprites, game.enemy_sprites), game)
+def Spawm_chogath(pos,game):
+    Chogath(pos, (game.all_sprites, game.enemy_sprites), game)
 def Spawn_animation(pos,game,enemy_name):
     Spawn_animation(pos,(game.all_sprites),game,enemy_name)
 
@@ -41,6 +43,8 @@ class Spawn_animation(pygame.sprite.Sprite):
                 Spawn_meele((self.rect.center),self.game)
             if self.enemy_name=='Karthus':
                 Spawn_karthus((self.rect.center),self.game)
+            if self.enemy_name=='Chogath':
+                Spawm_chogath((self.rect.center),self.game)
     def update(self, dt):
         self.animate(dt)
         self.spawn()

@@ -33,8 +33,8 @@ class Weapon(pygame.sprite.Sprite):
         self.mouse_direction = self.player.mouse_direction
         angle = degrees(atan2(self.mouse_direction.x, self.mouse_direction.y))+180
         self.image = pygame.transform.rotozoom(self.gun_surf, angle, 1)
-    def update(self, _):
+    def update(self, dt):
         self.rotate_gun()
         self.input()
-        for skill in self.skill_list: skill.update()
+        for skill in self.skill_list: skill.update(dt)
         self.rect.center = self.player.rect.center + self.mouse_direction*40

@@ -154,10 +154,10 @@
   <object id="196" name="Poro" type="Enemy" x="1418" y="449.333">
    <point/>
   </object>
-  <object id="88" name="Meele" x="578" y="314">
+  <object id="88" name="Chogath" x="578" y="314">
    <point/>
   </object>
-  <object id="89" name="Meele" x="1080" y="598">
+  <object id="89" name="Chogath" x="1080" y="598">
    <point/>
   </object>
   <object id="99" name="Meele" x="1166" y="1108">
