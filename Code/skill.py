@@ -1,5 +1,6 @@
 from settings import *
 from player_projectiles import *
+from enemy_projectile import *
 class Skill():
     def __init__(self, weapon):
         self.weapon=weapon
@@ -21,6 +22,9 @@ class Skill():
         else:
             self.cooldown=self.use_time+self.skill_cooldown-pygame.time.get_ticks()
         self.skill_timer()
+    def excute(self):
+        self.skill_timer()
+        self.check()
 class Gauntlet_primary(Skill):
     def __init__(self, weapon):
         super().__init__(weapon)

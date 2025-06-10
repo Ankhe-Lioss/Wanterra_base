@@ -65,6 +65,8 @@ class Player(LivingEntity):
     def update_animation(self, dt):
         self.frame_index = self.frame_index + (6 * dt if self.direction else 0)
         self.image = self.frames[self.facing][int(self.frame_index) % len(self.frames[self.facing])]
+    def destroy(self):
+        self.game.running=False
     def update(self, dt):
         self.get_mouse_direction()
         self.update_facing()

@@ -29,6 +29,7 @@ class Game:
         self.collision_sprites = pygame.sprite.Group()
         self.bullet_sprites = pygame.sprite.Group()
         self.enemy_sprites = pygame.sprite.Group()
+        self.player_sprites = pygame.sprite.Group()
         # setup
         setlevel(self)
     def run(self):

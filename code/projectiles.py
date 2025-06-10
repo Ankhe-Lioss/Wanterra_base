@@ -13,7 +13,7 @@ class Projectiles(pygame.sprite.Sprite):
         self.load_images()
         self.frame_index = 0
         self.image = self.frames[self.frame_index]
-        self.animation_speed = 2
+        self.animation_speed = 4
         #load rect
         self.rect = self.image.get_frect(center=pos)
         #load live stat

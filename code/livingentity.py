@@ -17,6 +17,7 @@ class LivingEntity(pygame.sprite.Sprite):
         self.hp_multiplier = self.stat[4]
         self.atk_multiplier = self.stat[5]
         self.def_multiplier = self.stat[6]
+        self.atk_range=self.stat[7]
         self.updstat()
         self.hp = self.maxhp
         self.atk = self.baseatk

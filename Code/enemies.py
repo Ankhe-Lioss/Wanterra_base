@@ -1,6 +1,8 @@
 from settings import *
 from livingentity import *
 from aoe import *
+from enemy_projectile import *
+from skill import *
 class Enemy(LivingEntity):
     def __init__(self, pos,groups, game):
         #load object to interact
@@ -24,7 +26,6 @@ class Enemy(LivingEntity):
         # rect
         self.rect = self.image.get_frect(center=pos)
         #attack_range
-        self.attack_range=64
         self.attack_time=1000
 
     def load_frames(self):
@@ -74,7 +75,7 @@ class Enemy(LivingEntity):
         if pygame.time.get_ticks()-self.death_time>=self.death_duration:
             self.kill()
     def attacking(self):
-        if self.distance.length() < self.attack_range and not any(
+        if self.distance.length() < self.atk_range and not any(
                 statu.effect_type == self.attack_type for statu in self.status):
             self.status.append(Status(self.attack_type, self.attack_time))
             self.attack_move()
@@ -108,3 +109,13 @@ class Meele(Enemy):
         self.attack_type='Cant_move_attack'
     def attack_move(self):
         pass
+class Karthus(Enemy):
+    def __init__(self, pos,groups, game):
+        self.name='Karthus'
+        super().__init__(pos,groups,game)
+        self.hitbox_rect = self.rect.inflate(0, 0)
+        self.asymmetry=True
+        self.attack_type='Cant_move_attack'
+        self.attack_time=1000
+    def attack_move(self):
+        Karthus_Primary(self.rect.center,self.direction,self.game.all_sprites,self.game,self)
