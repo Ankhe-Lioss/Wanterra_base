@@ -122,3 +122,5 @@ class Chogath(Enemy):
         self.hitbox_rect = self.rect.inflate(0, 0)
         self.asymmetry=True
         self.attack_time=1000
+        self.Primary=Chogath_stomp(self)
+        self.skills.append(self.Primary)

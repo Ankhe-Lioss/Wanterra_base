@@ -67,6 +67,7 @@ class Player(LivingEntity):
         self.image = self.frames[self.facing][int(self.frame_index) % len(self.frames[self.facing])]
     def destroy(self):
         self.game.running=False
+        print('u loose bitchess')
     def update(self, dt):
         self.get_mouse_direction()
         self.update_facing()

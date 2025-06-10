@@ -2,6 +2,7 @@ from settings import *
 from player_projectiles import *
 from enemy_projectiles import *
 from aoe import *
+from aoe_warning import *
 skill_stats = {
 #   "Skill" : (cooldown, warmup, cast_time,duration)
 
@@ -131,6 +132,22 @@ class Poro_stomp(Skill):
 
     def using_skill(self):
         Poro_Stomp(self.user.rect.center,self.user.game.all_sprites,self.user.game,self.user.atk)
+        self.user.state = 'Attacking'
+        self.normal_speed = self.user.speed
+        self.user.speed = 0
+        self.duration_run_out = pygame.time.get_ticks() + self.skill_duration
+
+    def turn_off(self):
+        super().turn_off()
+        self.user.speed = self.normal_speed
+        self.user.state = 'Walking'
+class Chogath_stomp(Skill):
+    def __init__(self, user):
+        self.name = 'Poro_stomp'
+        super().__init__(user)
+
+    def using_skill(self):
+        Spawn_rupture(self.user.player.rect.center, self.user.game.all_sprites, self.user.game, self.user.atk)
         self.user.state = 'Attacking'
         self.normal_speed = self.user.speed
         self.user.speed = 0

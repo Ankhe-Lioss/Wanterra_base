@@ -1,23 +1,29 @@
 from settings import *
 Aoe_stat={
-    #aoe skill=atk
-    'Poro_stomp':1}
+    #aoe skill=[atk,frame_number,life_time]
+    'Poro_Stomp':[1,3,1000],
+    'Chogath_Rupture':[1,5,1000]}
 class Area_of_effect(pygame.sprite.Sprite):
     def __init__(self,pos,groups,game,user_atk):
-        self.user_atk=user_atk
         super().__init__(groups)
+        self.user_atk=user_atk
+
+        #load stat
+        self.atk=Aoe_stat[self.name][0]
+        self.frame_number=Aoe_stat[self.name][1]
+        self.lifetime = Aoe_stat[self.name][2]
+        #graphic loading
+
         self.frame_index = 0
-        self.frames=[]
+        self.frames = []
         self.load_frame()
-        self.animation_speed = 3
-        self.lifetime=1000
-        self.spawn_time=pygame.time.get_ticks()
+        print(len(self.frames))
+        self.animation_speed = self.frame_number/self.lifetime*1000
+        self.spawn_time = pygame.time.get_ticks()
         self.image = self.frames[0]
         self.rect = self.image.get_frect(center=pos)
-        #load stat
-        self.atk=Aoe_stat[self.name]
     def load_frame(self):
-        for i in range(3):
+        for i in range(self.frame_number):
             surf=pygame.image.load(join('images', 'aoe',f'{self.name}', f'{i}.png')).convert_alpha()
             self.frames.append(surf)
     def animate(self, dt):
@@ -48,5 +54,10 @@ class Area_of_effect(pygame.sprite.Sprite):
 class Poro_Stomp(Area_of_effect):
     def __init__(self, pos, groups, game,user_atk):
         self.enemy_sprites=game.player_sprites
-        self.name='Poro_stomp'
+        self.name='Poro_Stomp'
+        super().__init__(pos,groups,game,user_atk)
+class Chogath_Rupture(Area_of_effect):
+    def __init__(self, pos, groups, game,user_atk):
+        self.enemy_sprites=game.player_sprites
+        self.name='Chogath_Rupture'
         super().__init__(pos,groups,game,user_atk)
