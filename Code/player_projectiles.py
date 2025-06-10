@@ -11,6 +11,7 @@ class Player_projectiles(Projectiles):
         #load combat stat
         self.atk=player_projectiles[self.name][0]
         self.speed=player_projectiles[self.name][1]
+        self.sound=player_projectiles[self.name][2]
         self.user=game.player
 class Gauntlet_Primary(Player_projectiles):
     def __init__(self, pos, direction, groups,game):

@@ -30,7 +30,7 @@ class Projectiles(pygame.sprite.Sprite):
         self.frame_index+=self.animation_speed*dt
         self.image = self.frames[int(self.frame_index) % len(self.frames)]
 
-    def bullet_collision(self):
+    def projectile_collision(self):
         dmg = self.atk * self.user.atk
 
         # Initialize a hit tracker if it doesn't exist yet
@@ -42,7 +42,9 @@ class Projectiles(pygame.sprite.Sprite):
         if collision_sprites:
             for sprite in collision_sprites:
                 if sprite not in self.hit_enemies:
+                    self.sound.play()
                     sprite.take_damage(dmg)
+
                     if hasattr(self,'special_effect'):
                         self.special_effect(sprite)
                     # Kill bullet if not piercing
@@ -63,6 +65,6 @@ class Projectiles(pygame.sprite.Sprite):
         self.animate(dt)
         self.move(dt)
         self.collision()
-        self.bullet_collision()
+        self.projectile_collision()
         if pygame.time.get_ticks() - self.spawn_time >= self.lifetime:
             self.kill()

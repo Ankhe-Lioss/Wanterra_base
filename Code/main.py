@@ -16,6 +16,7 @@ from weapon import *
 from player_projectiles import *
 from setlevel import *
 from cursor import *
+from load_audio import *
 class Game:
     def __init__(self):
         pygame.init()
@@ -33,6 +34,7 @@ class Game:
         # setup
         setlevel(self)
     def run(self):
+        background.play(-1)
         while self.running:
             # dt
             dt = self.clock.tick(FPS) / 1000

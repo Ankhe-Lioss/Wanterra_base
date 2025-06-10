@@ -13,6 +13,7 @@ class Enemy_projectiles(Projectiles):
         #load combat stat
         self.atk=enemy_projectiles[self.name][0]
         self.speed=enemy_projectiles[self.name][1]
+        self.sound=enemy_projectiles[self.name][2]
 class Karthus_Primary(Enemy_projectiles):
     def __init__(self, user, direction, groups,game):
         self.name='Karthus_Primary'
