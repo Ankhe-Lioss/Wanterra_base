@@ -36,13 +36,11 @@ class Enemy(LivingEntity):
             for k in range(0, 6):
                 surf = pygame.image.load(join('images', 'enemies',f'{self.name}',f'{i}',f'{k}.png')).convert_alpha()
                 self.frames[i].append(surf)
-
     def animate(self, dt):
         self.frame_index += self.animation_speed * dt
         self.image = self.frames[self.state][int(self.frame_index) % len(self.frames[self.state])]
         if hasattr(self, 'asymmetry') and self.direction.x < 0:
             self.image = pygame.transform.flip(self.image, True, False)
-
 
     def cal_dis(self):
         # get direction
@@ -68,10 +66,7 @@ class Enemy(LivingEntity):
                         else:
                             self.hitbox_rect.y -= self.direction.y * self.speed * dt
     def destroy(self):
-        self.death_time=pygame.time.get_ticks()
-        destroy_surf=pygame.mask.from_surface(self.frames['Walking'][0]).to_surface()
-        destroy_surf.set_colorkey('black')
-        self.image=destroy_surf
+        self.kill()
         self.game.spawn_numb-=1
     def death_timer(self):
         if pygame.time.get_ticks()-self.death_time>=self.death_duration:
@@ -82,17 +77,14 @@ class Enemy(LivingEntity):
                 if skill.can_cast:
                     skill.check()
     def update(self, dt):
-        if self.death_time==0:
-            if len(self.status)!=0:
-                check_status(self,dt)
-            self.cal_dis()
-            for skill in self.skills:
-                skill.update(dt)
-            self.attacking()
-            self.move_enemy(dt)
-            self.animate(dt)
-        else:
-            self.death_timer()
+        if len(self.status)!=0:
+            check_status(self,dt)
+        self.cal_dis()
+        for skill in self.skills:
+            skill.update(dt)
+        self.attacking()
+        self.move_enemy(dt)
+        self.animate(dt)
 
 class Poro(Enemy):
     def __init__(self, pos,game):

@@ -47,15 +47,15 @@ class Game:
             # update
             self.all_sprites.update(dt)
             if self.spawn_numb==0:
-                spawn_enmey_wave(self.wave,self)
-            print(self.spawn_numb)
+                spawn_enmey_wave((self.wave)%len(self.spawnlist),self)
+                self.wave+=1
             # draw
             self.display_surface.fill('darkgray')
             self.all_sprites.draw(self.player.rect.center)
             cursor(self)
             pygame.display.update()
         pygame.quit()
-
+        print(self.wave)
 if __name__ == '__main__':
 
     game = Game()
