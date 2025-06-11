@@ -33,18 +33,22 @@ class Game:
         self.player_sprites = pygame.sprite.GroupSingle()
         # setup
         setlevel(self)
+        self.spawn_numb=0
+        self.wave=0
     def run(self):
         background.play(-1)
         while self.running:
             # dt
             dt = self.clock.tick(FPS) / 1000
-
             # event loop
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     self.running = False
             # update
             self.all_sprites.update(dt)
+            if self.spawn_numb==0:
+                spawn_enmey_wave(self.wave,self)
+            print(self.spawn_numb)
             # draw
             self.display_surface.fill('darkgray')
             self.all_sprites.draw(self.player.rect.center)

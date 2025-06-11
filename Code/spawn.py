@@ -10,11 +10,11 @@ def Spawn_karthus(pos,game):
     Karthus(pos, game)
 def Spawm_chogath(pos,game):
     Chogath(pos, game)
-def Spawn_animation(pos,game,enemy_name):
-    Spawn_animation(pos,game,enemy_name)
+def Spawn_animation(enemy_name,pos,game):
+    Spawn_animation(enemy_name,pos,game)
 
 class Spawn_animation(pygame.sprite.Sprite):
-    def __init__(self, pos,game,enemy_name):
+    def __init__(self,enemy_name, pos,game):
         super().__init__(game.all_sprites)
         self.game=game
         self.frame_index = 0

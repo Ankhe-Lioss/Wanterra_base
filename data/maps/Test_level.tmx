@@ -145,31 +145,28 @@
   <object id="41" name="Player" x="788.667" y="733.667">
    <point/>
   </object>
-  <object id="96" name="Poro" type="Enemy" x="351.667" y="814.167">
+  <object id="96" name="Poro" type="0" x="354.697" y="814.167">
    <point/>
   </object>
-  <object id="97" name="Poro" type="Enemy" x="1282" y="791.333">
+  <object id="97" name="Poro" type="0" x="1282" y="791.333">
    <point/>
   </object>
-  <object id="196" name="Poro" type="Enemy" x="1418" y="449.333">
+  <object id="196" name="Poro" type="0" x="1418" y="449.333">
    <point/>
   </object>
-  <object id="88" name="Chogath" x="578" y="314">
+  <object id="88" name="Chogath" type="0" x="578" y="314">
    <point/>
   </object>
-  <object id="89" name="Chogath" x="1080" y="598">
+  <object id="89" name="Chogath" type="0" x="1080" y="598">
    <point/>
   </object>
-  <object id="99" name="Meele" x="1166" y="1108">
+  <object id="205" name="Karthus" type="0" x="621.212" y="1039.39">
    <point/>
   </object>
-  <object id="205" name="Karthus" x="621.212" y="1039.39">
+  <object id="207" name="Karthus" type="0" x="315.152" y="1157.58">
    <point/>
   </object>
-  <object id="207" name="Karthus" x="315.152" y="1157.58">
-   <point/>
-  </object>
-  <object id="208" name="Karthus" x="803.03" y="1212.12">
+  <object id="208" name="Karthus" type="0" x="806.06" y="1224.24">
    <point/>
   </object>
  </objectgroup>

@@ -3,6 +3,9 @@ from weapon import *
 def setlevel(game):
     game.level=0
     map = load_pygame(join( 'data', 'maps', 'Test_level.tmx'))
+    game.spawnlist={
+        #1=list[value=(obj.name,x,y)
+    }
     for x, y, image in map.get_layer_by_name('Tile Layer 1').tiles():
         Ground((x * TILE_SIZE, y * TILE_SIZE), image, game.all_sprites)
     for x, y, image in map.get_layer_by_name('Tile Layer 2').tiles():
@@ -18,4 +21,10 @@ def setlevel(game):
             game.player = Player((obj.x, obj.y), game)
             game.gun = Weapon( game)
         else:
-            Spawn_animation((obj.x, obj.y),game,obj.name)
+            if not obj.type in game.spawnlist:
+                game.spawnlist[obj.type]=[]
+            game.spawnlist[obj.type].append((obj.name, obj.x, obj.y))
+def spawn_enmey_wave(wave,game):
+    for obj in game.spawnlist[f'{wave}']:
+        Spawn_animation(obj[0],(obj[1],obj[2]),game)
+        game.spawn_numb+=1

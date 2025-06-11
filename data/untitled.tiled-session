@@ -5,9 +5,9 @@
     },
     "activeFile": "maps/Test_level.tmx",
     "expandedProjectPaths": [
-        "maps",
+        ".",
         "tilesets",
-        "."
+        "maps"
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {

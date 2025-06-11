@@ -72,6 +72,7 @@ class Enemy(LivingEntity):
         destroy_surf=pygame.mask.from_surface(self.frames['Walking'][0]).to_surface()
         destroy_surf.set_colorkey('black')
         self.image=destroy_surf
+        self.game.spawn_numb-=1
     def death_timer(self):
         if pygame.time.get_ticks()-self.death_time>=self.death_duration:
             self.kill()
