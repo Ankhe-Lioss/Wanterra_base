@@ -15,7 +15,7 @@ player_projectiles = {
 }
 enemy_projectiles = {
 #   "proj" : (atk_scale_multification, speed)
-    "Karthus_Primary" : (2, 750,hit_sound),
+    "Karthus_Primary" : (2, 1200,hit_sound),
 
 }
 skill_stats = {

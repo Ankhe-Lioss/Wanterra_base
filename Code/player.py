@@ -5,9 +5,9 @@ from skill import *
 from livingentity import *
 from stats import *
 class Player(LivingEntity):
-    def __init__(self, pos, groups, game):
+    def __init__(self, pos, game):
         self.name='Player'
-        super().__init__(groups,game)
+        super().__init__(game.player_sprites,game)
         #game interaction
         #graphic loading
         self.load_image()

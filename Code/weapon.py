@@ -3,15 +3,13 @@ from player_projectiles import *
 from skill import *
 
 class Weapon(pygame.sprite.Sprite):
-    def __init__(self, groups,game):
+    def __init__(self, game):
         # player connection
-
-
         self.game=game
         self.player = self.game.player
         self.mouse_direction = self.player.mouse_direction
         # sprite setup
-        super().__init__(groups)
+        super().__init__(game.all_sprites)
         self.gun_surf = pygame.image.load(join('images', 'gun', 'gun.png')).convert_alpha()
         self.image = self.gun_surf
         self.rect = self.image.get_frect(center=self.player.rect.center)

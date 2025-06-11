@@ -2,7 +2,7 @@ from settings import *
 from player_projectiles import *
 from enemy_projectiles import *
 from aoe import *
-from aoe_warning import *
+from aoeinit import *
 from load_audio import *
 from stat import *
 
@@ -18,7 +18,6 @@ class Skill():
         self.cast_time = self.stat[2]
 
         self.use_time = 0
-
         self.cooldown=0
         self.duration_run_out = None
     def check(self):
@@ -49,7 +48,7 @@ class Gauntlet_primary(Skill):
         super().__init__(user)
     def using_skill(self):
         pos = self.user.rect.center + self.user.mouse_direction * 50
-        Gauntlet_Primary(pos, self.user.mouse_direction, (self.user.game.all_sprites, self.user.game.bullet_sprites),self.user.game)
+        Gauntlet_Primary(pos, self.user.mouse_direction, self.user.game)
 
 class Gauntlet_skillQ(Skill):
     def __init__(self, user):
@@ -57,8 +56,7 @@ class Gauntlet_skillQ(Skill):
         super().__init__(user)
     def using_skill(self):
         pos = self.user.rect.center + self.user.mouse_direction * 50
-        Gauntlet_SkillQ(pos, self.user.mouse_direction,
-                         (self.user.game.all_sprites, self.user.game.bullet_sprites), self.user.game)
+        Gauntlet_SkillQ(pos, self.user.mouse_direction, self.user.game)
 
 class Gauntlet_skillE(Skill):
     def __init__(self, user):
@@ -66,7 +64,7 @@ class Gauntlet_skillE(Skill):
         super().__init__(user)
     def using_skill(self):
         pos = self.user.rect.center + self.user.mouse_direction * 50
-        Gauntlet_SkillE(pos, self.user.mouse_direction,(self.user.game.all_sprites, self.user.game.bullet_sprites), self.user.game)
+        Gauntlet_SkillE(pos, self.user.mouse_direction, self.user.game)
 
 class Teleport(Skill):
     def __init__(self, user):
@@ -87,7 +85,7 @@ class Karthus_primary(Skill):
         self.name='Karthus_primary'
         super().__init__(user)
     def using_skill(self):
-        Karthus_Primary(self.user,self.user.direction,self.user.game.all_sprites,self.user.game)
+        Karthus_Primary(self.user,self.user.direction,self.user.game)
         self.user.state='Attacking'
         self.user.speed =0
         self.duration_run_out = pygame.time.get_ticks() + self.skill_duration
@@ -101,7 +99,7 @@ class Poro_stomp(Skill):
         super().__init__(user)
 
     def using_skill(self):
-        Poro_Stomp(self.user.rect.center,self.user.game.all_sprites,self.user.game,self.user.atk)
+        Poro_Stomp(self.user.rect.center,self.user.game,self.user.atk)
         self.user.state = 'Attacking'
         self.user.speed = 0
         self.duration_run_out = pygame.time.get_ticks() + self.skill_duration
@@ -116,7 +114,7 @@ class Chogath_stomp(Skill):
         super().__init__(user)
 
     def using_skill(self):
-        Spawn_rupture(self.user.player.rect.center, self.user.game.all_sprites, self.user.game, self.user.atk)
+        Spawn_rupture(self.user.player.rect.center, self.user.game, self.user.atk)
         self.user.state = 'Attacking'
         self.user.speed = 0
         self.duration_run_out = pygame.time.get_ticks() + self.skill_duration

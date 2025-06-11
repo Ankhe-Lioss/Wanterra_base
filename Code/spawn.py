@@ -3,19 +3,19 @@ from enemies import *
 from stats import *
 
 def Spawn_poro(pos,game):
-    Poro(pos, (game.all_sprites, game.enemy_sprites), game)
+    Poro(pos, game)
 def Spawn_meele(pos,game):
-    Meele(pos, (game.all_sprites, game.enemy_sprites), game)
+    Meele(pos, game)
 def Spawn_karthus(pos,game):
-    Karthus(pos, (game.all_sprites, game.enemy_sprites), game)
+    Karthus(pos, game)
 def Spawm_chogath(pos,game):
-    Chogath(pos, (game.all_sprites, game.enemy_sprites), game)
+    Chogath(pos, game)
 def Spawn_animation(pos,game,enemy_name):
-    Spawn_animation(pos,(game.all_sprites),game,enemy_name)
+    Spawn_animation(pos,game,enemy_name)
 
 class Spawn_animation(pygame.sprite.Sprite):
-    def __init__(self, pos,groups,game,enemy_name):
-        super().__init__(groups)
+    def __init__(self, pos,game,enemy_name):
+        super().__init__(game.all_sprites)
         self.game=game
         self.frame_index = 0
         self.frames=[]

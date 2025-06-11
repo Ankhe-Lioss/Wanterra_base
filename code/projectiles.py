@@ -1,8 +1,8 @@
 from settings import *
 from stats import *
 class Projectiles(pygame.sprite.Sprite):
-    def __init__(self, pos, direction, groups,game):
-        super().__init__(groups)
+    def __init__(self, pos, direction, game):
+        super().__init__((game.bullet_sprites,game.all_sprites))
         #load interaction
         self.collision_sprites=game.collision_sprites
         #load bullet direction
@@ -29,7 +29,6 @@ class Projectiles(pygame.sprite.Sprite):
     def animate(self, dt):
         self.frame_index+=self.animation_speed*dt
         self.image = self.frames[int(self.frame_index) % len(self.frames)]
-
     def projectile_collision(self):
         dmg = self.atk * self.user.atk
 

@@ -1,10 +1,9 @@
 from aoe import *
 class Spawn_rupture(pygame.sprite.Sprite):
-    def __init__(self, pos, groups, game,user_atk):
-        super().__init__(groups)
+    def __init__(self, pos, game,user_atk):
+        super().__init__(game.all_sprites)
         #pass to aoe
         self.game=game
-        self.groups=groups
         self.pos=pos
         self.user_atk=user_atk
 
@@ -26,7 +25,7 @@ class Spawn_rupture(pygame.sprite.Sprite):
     def spawn(self):
         if pygame.time.get_ticks() - self.spawn_time >= self.lifetime:
             self.kill()
-            Chogath_Rupture(self.pos,self.groups,self.game,self.user_atk)
+            Chogath_Rupture(self.pos,self.game,self.user_atk)
     def animate(self, dt):
         self.frame_index += self.animation_speed * dt
         self.image = self.frames[int(self.frame_index % len(self.frames))]

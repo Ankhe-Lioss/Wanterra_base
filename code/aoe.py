@@ -4,8 +4,8 @@ Aoe_stat={
     'Poro_Stomp':[1,3,1000],
     'Chogath_Rupture':[1,5,1000]}
 class Area_of_effect(pygame.sprite.Sprite):
-    def __init__(self,pos,groups,game,user_atk):
-        super().__init__(groups)
+    def __init__(self,pos,game,user_atk):
+        super().__init__(game.all_sprites)
         self.user_atk=user_atk
 
         #load stat
@@ -51,12 +51,12 @@ class Area_of_effect(pygame.sprite.Sprite):
         if pygame.time.get_ticks()-self.spawn_time>=self.lifetime:
             self.kill()
 class Poro_Stomp(Area_of_effect):
-    def __init__(self, pos, groups, game,user_atk):
+    def __init__(self, pos, game,user_atk):
         self.enemy_sprites=game.player_sprites
         self.name='Poro_Stomp'
-        super().__init__(pos,groups,game,user_atk)
+        super().__init__(pos,game,user_atk)
 class Chogath_Rupture(Area_of_effect):
-    def __init__(self, pos, groups, game,user_atk):
+    def __init__(self, pos, game,user_atk):
         self.enemy_sprites=game.player_sprites
         self.name='Chogath_Rupture'
-        super().__init__(pos,groups,game,user_atk)
+        super().__init__(pos,game,user_atk)

@@ -1,9 +1,10 @@
 from settings import *
 from stats import *
 from status import *
+from healthbar import *
 class LivingEntity(pygame.sprite.Sprite):
     def __init__(self,groups,game):
-        super().__init__(groups)
+        super().__init__((groups,game.all_sprites))
         self.game=game
         self.level=game.level
         #interaction
@@ -25,6 +26,7 @@ class LivingEntity(pygame.sprite.Sprite):
         self.speed = self.basespd
         #status
         self.status = []
+        #healthbar
     def updstat(self):
         self.maxhp = self.raw_hp + self.level * self.hp_multiplier
         self.baseatk = self.raw_atk + self.level * self.atk_multiplier

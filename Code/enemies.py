@@ -4,9 +4,9 @@ from aoe import *
 from enemy_projectiles import *
 from skill import *
 class Enemy(LivingEntity):
-    def __init__(self, pos,groups, game):
+    def __init__(self, pos,game):
         #load object to interact
-        super().__init__(groups,game)
+        super().__init__(game.enemy_sprites,game)
         self.player=game.player
         self.collision_sprites=game.collision_sprites
         self.enemy_sprite=game.enemy_sprites
@@ -27,7 +27,8 @@ class Enemy(LivingEntity):
         self.rect = self.image.get_frect(center=pos)
         #skill
         self.skills=[]
-
+        #healthbar
+        self.health_bar=Healthbar(self)
     def load_frames(self):
         self.frames = {}
         for i in self.states :
@@ -93,32 +94,32 @@ class Enemy(LivingEntity):
             self.death_timer()
 
 class Poro(Enemy):
-    def __init__(self, pos, groups, game):
+    def __init__(self, pos,game):
         self.name='Poro'
-        super().__init__(pos,groups,game)
+        super().__init__(pos,game)
         self.hitbox_rect = self.rect.inflate(0, 0)
         self.Primary=Poro_stomp(self)
         self.skills.append(self.Primary)
 
 class Meele(Enemy):
-    def __init__(self, pos,groups, game):
+    def __init__(self, pos,game):
         self.name='Meele'
-        super().__init__(pos,groups,game)
+        super().__init__(pos,game)
         self.hitbox_rect = self.rect.inflate(0, 0)
         self.asymmetry=True
 class Karthus(Enemy):
-    def __init__(self, pos,groups, game):
+    def __init__(self, pos, game):
         self.name='Karthus'
-        super().__init__(pos,groups,game)
+        super().__init__(pos,game)
         self.hitbox_rect = self.rect.inflate(0, 0)
         self.asymmetry=True
         self.attack_time=1000
         self.Primary = Karthus_primary(self)
         self.skills.append(self.Primary)
 class Chogath(Enemy):
-    def __init__(self, pos,groups, game):
+    def __init__(self, pos, game):
         self.name='Chogath'
-        super().__init__(pos,groups,game)
+        super().__init__(pos,game)
         self.hitbox_rect = self.rect.inflate(0, 0)
         self.asymmetry=True
         self.attack_time=1000
