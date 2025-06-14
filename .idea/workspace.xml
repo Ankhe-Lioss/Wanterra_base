@@ -6,10 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1a9cb1f2-7068-45bb-a586-1076765e5cdd" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Code/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Code/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/healthbar.py" beforeDir="false" afterPath="$PROJECT_DIR$/code/healthbar.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/UI/health_bar/0.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/UI/health_bar/0.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/UI/health_bar/5.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/UI/health_bar/5.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -283,7 +280,7 @@
       <workItem from="1749795946447" duration="715000" />
       <workItem from="1749796924207" duration="73000" />
       <workItem from="1749840886538" duration="191000" />
-      <workItem from="1749872169757" duration="4363000" />
+      <workItem from="1749872169757" duration="4919000" />
     </task>
     <servers />
   </component>
@@ -325,7 +322,7 @@
     <SUITE FILE_PATH="coverage/enemies_py$Main.coverage" NAME="Main Coverage Results" MODIFIED="1749442382962" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$ContentRoot$" />
     <SUITE FILE_PATH="coverage/player_py$test.coverage" NAME="test Coverage Results" MODIFIED="1749331492237" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$USER_HOME$/Desktop" />
     <SUITE FILE_PATH="coverage/main_py$main.coverage" NAME="main Coverage Results" MODIFIED="1749567513614" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../Zelda/15 - fixes audio/code" />
-    <SUITE FILE_PATH="coverage/main_py$Main.coverage" NAME="Main Coverage Results" MODIFIED="1749876561102" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$ContentRoot$" />
+    <SUITE FILE_PATH="coverage/main_py$Main.coverage" NAME="Main Coverage Results" MODIFIED="1749877091801" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$ContentRoot$" />
     <SUITE FILE_PATH="coverage/enemies_py$enemies.coverage" NAME="enemies Coverage Results" MODIFIED="1749114324783" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Code" />
     <SUITE FILE_PATH="coverage/main_py$player.coverage" NAME="player Coverage Results" MODIFIED="1749228337149" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Code" />
     <SUITE FILE_PATH="coverage/main_py$spawn.coverage" NAME="spawn Coverage Results" MODIFIED="1749224299343" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Code" />

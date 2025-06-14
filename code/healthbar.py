@@ -41,15 +41,11 @@ class Percentage_healthbar(pygame.sprite.Sprite):
         # Calculate health percentage, clamped between 0 and 1
         health_percentage = max(0, min(1, self.user.hp / self.user.maxhp))
 
-        # Get dimensions of the original image
-        full_width = self.original_image.get_width()
-        full_height = self.original_image.get_height()
-
         # Calculate new width for the chopped health bar
-        new_width = 1+int((full_width-2) * health_percentage)
+        new_width = 1+int(30 * health_percentage)
 
         # Create a rectangle for the subsurface
-        chopped_rect = pygame.Rect(0, 0, new_width, full_height)
+        chopped_rect = pygame.Rect(0, 0, new_width, 5)
 
         # Extract subsurface safely
         self.image = self.original_image.subsurface(chopped_rect).copy()
