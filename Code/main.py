@@ -55,8 +55,6 @@ class Game:
             cursor(self)
             pygame.display.update()
         pygame.quit()
-        print(self.wave)
 if __name__ == '__main__':
-
     game = Game()
     game.run()
