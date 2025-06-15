@@ -5,7 +5,8 @@ entity_stat = {
     "Poro"   : (250, 50 , 10, 500, 75, 10, 2,64),
     "Meele"   : (300, 50 , 10, 350, 75, 10, 2,64),
     "Karthus"   : (250, 50 , 10, 250, 75, 10,2, 382),
-    "Chogath"   : (300, 50 , 10, 350, 75, 10,2, 128)
+    "Chogath"   : (300, 50 , 10, 350, 75, 10,2, 128),
+    "Veigar"   : (300, 50 , 10, 350, 75, 10,2, 128)
 }
 player_projectiles = {
 #   "proj" : (atk_scale_multification, speed)

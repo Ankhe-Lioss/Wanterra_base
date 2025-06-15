@@ -15,7 +15,7 @@ class Background_healthbar(pygame.sprite.Sprite):
         super().__init__(user.game.all_sprites)
         self.user = user
         self.image = health_bar_empty_image
-        self.rect = self.image.get_rect(topleft=(user.rect.x + 10, user.rect.y - 10))
+        self.rect = self.image.get_rect(midtop=(user.rect.x + 10, user.rect.y - 10))
     def update(self, dt):
         if self.user.hp <= 0:
             self.kill()
@@ -28,7 +28,7 @@ class Percentage_healthbar(pygame.sprite.Sprite):
         self.user = user
         self.original_image = health_bar_full_image  # Keep the original full bar image
         self.image = self.original_image.copy()  # Create an editable copy
-        self.rect = self.image.get_rect(topleft=(user.rect.x + 10, user.rect.y - 10))
+        self.rect = self.image.get_rect(midtop=(user.rect.x + 10, user.rect.y - 10))
 
     def update(self, dt):
         if self.user.hp <= 0:
@@ -49,4 +49,3 @@ class Percentage_healthbar(pygame.sprite.Sprite):
 
         # Extract subsurface safely
         self.image = self.original_image.subsurface(chopped_rect).copy()
-

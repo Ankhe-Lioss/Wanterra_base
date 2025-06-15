@@ -118,3 +118,12 @@ class Chogath(Enemy):
         self.attack_time=1000
         self.Primary=Chogath_stomp(self)
         self.skills.append(self.Primary)
+class Veigar(Enemy):
+    def __init__(self, pos, game):
+        self.name = 'Veigar'
+        super().__init__(pos, game)
+        self.hitbox_rect = self.rect.inflate(0, 0)
+        self.asymmetry = True
+        self.attack_time = 1000
+        self.Primary = Chogath_stomp(self)
+        self.skills.append(self.Primary)

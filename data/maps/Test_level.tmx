@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="80" height="45" tilewidth="32" tileheight="32" infinite="0" nextlayerid="10" nextobjectid="218">
+<map version="1.10" tiledversion="1.11.2" orientation="orthogonal" renderorder="right-down" width="80" height="45" tilewidth="32" tileheight="32" infinite="0" nextlayerid="10" nextobjectid="220">
  <tileset firstgid="1" source="../tilesets/terrain.tsx"/>
  <tileset firstgid="484" source="../tilesets/Objects.tsx"/>
  <tileset firstgid="538" source="../tilesets/terrain_atlas.tsx"/>
@@ -161,6 +161,12 @@
    <point/>
   </object>
   <object id="213" name="Karthus" type="3" x="360.606" y="936.364">
+   <point/>
+  </object>
+  <object id="218" name="Veigar" type="0" x="752.61" y="1169.82">
+   <point/>
+  </object>
+  <object id="219" name="Veigar" type="1" x="1275.76" y="715.152">
    <point/>
   </object>
  </objectgroup>
