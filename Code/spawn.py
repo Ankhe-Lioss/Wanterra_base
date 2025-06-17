@@ -1,3 +1,4 @@
+from sprites import *
 from settings import *
 from enemies import *
 from stats import *
@@ -51,6 +52,8 @@ class Spawn_animation(pygame.sprite.Sprite):
                 Spawm_chogath((self.rect.center),self.game)
             if self.enemy_name=='Veigar':
                 Spawn_veigar((self.rect.center),self.game)
+            if self.enemy_name=='Check_in':
+                Check_in((self.rect.center),self.game)
     def update(self, dt):
         self.animate(dt)
         self.spawn()

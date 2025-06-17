@@ -2,7 +2,7 @@ from main import *
 from weapon import *
 def setlevel(game):
     game.level=0
-    map = load_pygame(join( 'data', 'maps', 'Test_level.tmx'))
+    map = load_pygame(join( 'data', 'maps', 'Level0.tmx'))
     game.spawnlist={
         #1=list[value=(obj.name,x,y)
     }
@@ -24,6 +24,7 @@ def setlevel(game):
             if not obj.type in game.spawnlist:
                 game.spawnlist[obj.type]=[]
             game.spawnlist[obj.type].append((obj.name, obj.x, obj.y))
+            print(obj.name, obj.x, obj.y)
 def spawn_enmey_wave(wave,game):
     for obj in game.spawnlist[f'{wave}']:
         Spawn_animation(obj[0],(obj[1],obj[2]),game)

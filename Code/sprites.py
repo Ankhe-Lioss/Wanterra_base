@@ -11,3 +11,14 @@ class CollisionSprite(pygame.sprite.Sprite):
         super().__init__(groups)
         self.image = surf
         self.rect = self.image.get_frect(topleft=pos)
+class Check_in(pygame.sprite.Sprite):
+    def __init__(self, pos,game):
+        super().__init__(game.all_sprites)
+        self.game = game
+        self.image = pygame.image.load(join('images','enviroment','check_in','0.png'))
+        self.rect = self.image.get_rect(topleft=pos)
+        self.visible = False
+    def update(self,dt):
+        if pygame.sprite.spritecollide(self, self.game.player_sprites,False):
+            self.kill()
+            self.game.spawn_numb-=1

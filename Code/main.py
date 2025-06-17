@@ -47,7 +47,7 @@ class Game:
             # update
             self.all_sprites.update(dt)
             if self.spawn_numb==0:
-                spawn_enmey_wave((self.wave)%len(self.spawnlist),self)
+                spawn_enmey_wave(self.wave%len(self.spawnlist),game)
                 self.wave+=1
             # draw
             self.display_surface.fill('darkgray')
