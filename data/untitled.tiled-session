@@ -3,14 +3,32 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "maps/Test_level.tmx",
+    "activeFile": "",
     "expandedProjectPaths": [
-        "maps",
         ".",
+        "maps",
         "tilesets"
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
+        "D:/Git/WARNTERRA_MAIN/data/maps/Test_level.tmx": {
+            "scale": 0.33695312499999996,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 1280.593554370508,
+                "y": 719.6846742406677
+            }
+        },
+        "D:/Git/WARNTERRA_MAIN/data/tilesets/Objects.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1
+        },
+        "D:/Git/WARNTERRA_MAIN/data/tilesets/terrain.tsx": {
+            "scaleInDock": 1
+        },
+        "D:/Git/WARNTERRA_MAIN/data/tilesets/terrain_atlas.tsx": {
+            "scaleInDock": 1
+        },
         "maps/Test_level.tmx": {
             "scale": 0.5,
             "selectedLayer": 3,
@@ -50,11 +68,11 @@
     "map.lastUsedFormat": "tmx",
     "map.width": 80,
     "openFiles": [
-        "maps/Test_level.tmx"
     ],
     "project": "untitled.tiled-project",
     "recentFiles": [
         "maps/Test_level.tmx",
+        "D:/Git/WARNTERRA_MAIN/data/maps/Test_level.tmx",
         "tilesets/terrain_atlas.tsx",
         "tilesets/Objects.tsx",
         "maps/Test_level2.tmx"
